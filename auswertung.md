@@ -1,0 +1,10 @@
+# Auswertung
+
+## Definitionen
+
+## Simulationsaufbau
+
+## Simulationsergebnisse
+
+
+
