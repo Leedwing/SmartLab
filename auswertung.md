@@ -1,8 +1,8 @@
-# Auswertung
+# Simulation/Auswertung\(?\)
 
 ## Definitionen
 
-Im folgenden werden die in der Simulation verwendeten Hilfsmittel und Bausteine dargestellt und veranschaulicht, um die Aussagekraft der Simulationsergebnisse zu veranschaulichen. Die folgenden Definitionen sind Teil der Simulation und bieten die Grundlage zum Verständnis der nachfolgenden Simulationsdokumentation.
+Im folgenden werden die in der Simulation verwendeten Hilfsmittel und Bausteine dargestellt, um die Aussagekraft der Simulation und derer Ergebnisse zu veranschaulichen. Die folgenden Definitionen sind Teil der durchgeführten Simulation und bieten die Grundlage zum Verständnis der nachfolgenden Simulationsdokumentation.
 
 ### Bewertungskriterien
 
@@ -10,15 +10,30 @@ Bevor wir mit der Simulation begannen, definierten wir zuerst die der Simulation
 Da unsere Applikation\(en\) den Einkaufsprozess anhand einer digitalen Einkaufsliste verbessern, liegt der Fokus auf der Korrektheit der automatisch generierten Einkaufsliste. D.h. uns interessiert das sogenannte Delta zwischen der automatisch generierten Einkaufsliste \(Ist-Liste\) und der optimales Einkaufliste \(Soll-Liste\) um die Korrektheit der Liste überhaupt bewerten zu können.  
 Um die Korrektheit zwischen den zwei Listen einheitlich zu messen, haben wir folgende Metriken festgelegt:
 
-* Anzahl der produkte auf Soll-Liste, die auf der Ist-Liste fehlen
+* Anzahl der Produkte auf Soll-Liste, die auf der Ist-Liste fehlen
 * Anzahl der Produkte auf Ist-Liste, die nicht auf Soll-Liste stehen
 
 ### Persona
 
+Entspricht in diesem Zusammenhang bestimmten Konsum- & Verbrauchsdaten über eine bestimmte Person oder einen Personenkreis. Eine Persona definiert sich dabei durch eine Menge von Produkten die regelmäßig \(oder auch unregelmäßig\) gekauft werden, mit zusätzlicher Angabe des durchschnittlichen Verbrauchs in Form von Intervallen. Zusätzlich zu den Verbrauchs-/Bedarfsinformationen wird eine Einkaufshäufigkeit in Form eines Intervalls angegeben. D.h. zusammengefasst ist für bestimmte Produkte deren Bedarfshäufigkeit in einer Persona definiert, sowie auch dessen allgemeint Einkaufshäufigkeit \(in gleicher Form\).
+
+Die folgende Tabelle veranschaulicht dies am Beispiel einer Sportler-Persona:
+
+| Produkt | Bedarfshäufigkeit \(Sportler\) |
+| :--- | :---: |
+| Butter | 25 - 30 Tage |
+| Milch |  7 - 14 Tage |
+| Käse | 10 - 15 Tage |
+| Salami |  7 - 10 Tage |
+
+| Einkaufshäufigkeit \(Sportler\) | 7 - 14 Tage |
+| :--- | :--- |
+
+
 ### Smart Integration Matrix
 
 Die Smart Integration Matrix zeigt die in unserem Szenario möglichen Varianten wie eine Einkaufsliste befüllt werden kann. Dabei sind für die drei definierten Möglichkeiten \('Manuell', 'Smart Home' & 'Smart Shop'\) jeweils Qualitätsstufen angegeben, welche das Maß der Qualität der Nutzung der drei Verwaltungsmöglichkeiten darstellt.   
-Diese Qualitätsstufen können Werte zwischen 0 und 3 annehmen, wobei eine '0' bedeutet, dass diese Komponente nicht verwendet wird und eine '3' einer sehr sorgfältigen Verwendung entspricht.
+Diese Qualitätsstufen können Werte zwischen 0 und 3 annehmen, wobei eine '0' bedeute, dass diese Komponente nicht verwendet wird und eine '3' einer sehr sorgfältigen Verwendung entspricht.
 
 Die Tabelle der möglichen Werte ist im Folgenden dargestellt: 
 
