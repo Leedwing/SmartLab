@@ -2,11 +2,16 @@
 
 ## Definitionen
 
-Im folgenden werden die in der Simulation verwendeten Hilfsmittel und Bausteine dargestellt und veranschaulicht, um die Aussagekraft der Simulationsergebnisse zu stützen.
+Im folgenden werden die in der Simulation verwendeten Hilfsmittel und Bausteine dargestellt und veranschaulicht, um die Aussagekraft der Simulationsergebnisse zu veranschaulichen. Die folgenden Definitionen sind Teil der Simulation und bieten die Grundlage zum Verständnis der nachfolgenden Simulationsdokumentation.
 
 ### Bewertungskriterien
 
+Bevor wir mit der Simulation begannen, definierten wir zuerst die der Simulation zu Grunde gelegten Bewertungskriterien. Bewertet werden soll allgemein gesagt die Nützlichkeit der vorgestellten Applikationen im Bezug auf den Einkaufsprozess.  
+Da unsere Applikation\(en\) den Einkaufsprozess anhand einer digitalen Einkaufsliste verbessern, liegt der Fokus auf der Korrektheit der automatisch generierten Einkaufsliste. D.h. uns interessiert das sogenannte Delta zwischen der automatisch generierten Einkaufsliste \(Ist-Liste\) und der optimales Einkaufliste \(Soll-Liste\) um die Korrektheit der Liste überhaupt bewerten zu können.  
+Um die Korrektheit zwischen den zwei Listen einheitlich zu messen, haben wir folgende Metriken festgelegt:
 
+* Anzahl der produkte auf Soll-Liste, die auf der Ist-Liste fehlen
+* Anzahl der Produkte auf Ist-Liste, die nicht auf Soll-Liste stehen
 
 ### Persona
 
