@@ -108,13 +108,13 @@ Die Einkaufliste kann auch, wie der Warenkorb, manuell bedient werden. Durch mar
 
 ![](.gitbook/assets/4.PNG)
 
-![](.gitbook/assets/5.PNG)
-
 Abbildung 5 Kauf- und Verbrauchshistorie
 
 Eine weitere Funktion die, die App besitzt ist, wie in Abbildung 5 zu sehen, die Anzeige ein Einkaufs-und Verbrauchshistorie. Das heißt, es wird für jedes Produkt sein letztes Kaufdatum und das letzte Verbrauchsdatum angezeigt. Diese Information hilft dem User eine Übersicht zu bekommen über seinen Warenkorb und sie dienen zur Grundlage für die Berechnung des Kauf- und Verbrauchsverhaltens des Users.
 
 **Anmelde - / Registrierungsmaske**
+
+![](.gitbook/assets/5.PNG)
 
 Abbildung 6 Anmelde- / Registrierungsmaske
 
