@@ -40,23 +40,9 @@ Um die kumulative Wahrscheinlichkeit zu berechnen, wird bei der Implementierung 
 
 **Vorschau Coding:**
 
-public double computeKumulativeWahrscheinlichkeit\(ArrayList&lt;Integer&gt; produktDaten,  int **abgelaufeneTage**\) {
+![](.gitbook/assets/coding2.PNG)
 
-        double erwartungsWert = this.computeErwartungswert\(produktDaten\);
 
-        double standardAbweichung = this.computeStandardAbw\(produktDaten\);
-
-        //Verteiluntsfunktion wird gebaut
-
-        NormalDistribution normDist = new NormalDistribution\(erwartungsWert, standardAbweichung\);
-
-        //Wahrscheinlichkeit, dass ein Produkt nach höchstens n-1 Tagen verbraucht wird: P\(x&lt;n\)
-
-        double cumulWahrscheinlichkeit = normDist.cumulativeProbability\(**abgelaufeneTage**\);
-
-        return cumulWahrscheinlichkeit;
-
-    }
 
 **Warenkorb**
 
@@ -122,51 +108,11 @@ Durch die in Abbildung 6 zu sehende Funktion der App, ist es möglich sich einen
 
 Für die Erzeugung eines QR-Codes benötigt die App eine zXing Java-Bibliothek, die importiert werden muss. Diese Bibliothek enthält die wichtigen Klassen „QRCodeWriter“ und „BitMatrix“, die es ermöglichen den gewünschten String zu kodieren und den QRCode in einer Bitmap zu erzeugen, die in einen ImageView eingefügt wird.
 
-**Vorschau Coding:**
+**Vorschau Coding**
 
-QRCodeWriter writer = new QRCodeWriter\(\);
+![](.gitbook/assets/coding1.PNG)
 
-try
-
-{
-
-            //Erzeugung einer BitMatrix mit angegeben String
-
-            BitMatrix bitMatrix = writer.encode\(vorname + " " + name, BarcodeFormat.QR\_CODE, 512\);
-
-            int width = bitMatrix.getWidth\(\);
-
-            int height = bitMatrix.getHeight\(\);
-
-            Bitmap bmp = Bitmap.createBitmap\(width, height, Bitmap.Config.RGB\_565\);
-
-            //Erzeugung des QRCodes in einer Bitmap
-
-            for \(int x = 0; x &lt; width; x++\)
-
-           {
-
-                for \(int y = 0; y &lt; height; y++\)
-
- {
-
-                    bmp.setPixel\(x, y, bitMatrix.get\(x, y\) ? Color.BLACK : Color.WHITE\);
-
-                }
-
-            }
-
-            \(\(ImageView\) findViewById\(R.id.imageView\_qrcode\)\).setImageBitmap\(bmp\);
-
- }
-
- catch \(WriterException e\)
-
- {
-
-            e.printStackTrace\(\);
-
- }
+    
 
 ## Smart Home Integration via Amazon Alexa
 
