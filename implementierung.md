@@ -116,6 +116,85 @@ Für die Erzeugung eines QR-Codes benötigt die App eine zXing Java-Bibliothek, 
 
 ## Smart Home Integration via Amazon Alexa
 
+**Bezeichnung:** Shop Node
+
+**Anforderung an den Alexa-Skill:**
+
+·         Verbindung zu einer MySQL Datenbank
+
+·         Bearbeitung einer Einkaufsliste \(Löschen und Hinzufügen von Produkten\)
+
+·         Das Abfragen einer Einkaufliste
+
+·         Aufnahme des Verbrauchsdatum beim Hinzufügen eines Produktes auf die Einkaufliste
+
+·         Aufnahme „Verbrauch in Tagen“ eines Produktes und hinzufügen in die Verbrauchsstatistik
+
+Die Alexa Skill Entwicklung lässt sich in zwei Schichten unterteilen. Einmal das Frontend \(Interaction Model\) und auf der anderen Seite das Backend \(Hosted Service\). Die beiden Schichten werden durch den Alexa Voice Service miteinander verbunden.
+
+Das Interaction Model beschreibt die Kommunikation zwischen dem User und dem Alexa Voice Service. Die Kommunikation muss immer einem bestimmten Schema entsprechen. Kleinere Abweichungen vom definierten Schema können toleriert werden.
+
+Unter dem Hosted Service versteht man das Backend. Hier wird der Funktionscode in der serverseitigen Plattform „Node.js“ mit der Programmiersprache „JavaScript“ geschrieben. Der Code wird in der Cloud ausgeführt, wenn Alexa mittels Spracheingabe aufgerufen wird.
+
+**Entwicklung des Amazon Alexa Skills mit JavaScript über AWS Lamda**
+
+Im Code sind mehrere sogenannte Intents hinterlegt, welche per passendem Sprachbefehl aufgerufen werden können. Intents sind vergleichbar mit Methoden die bspw. ausgeführt werden durch einen Button Klick. Beim Aufruf können auch bestimmte Informationen \(in diesem Fall Produkte\) per Variable übergeben werden.  Die Intents und Variablen müssen im Amazon Developer Tool definiert werden. Die Intelligenz wird dann im Programmcode, im AWS Lamda Tool, ausprogrammiert.
+
+![](.gitbook/assets/unbenannt4.PNG)
+
+Abbildung 7: Ansicht , Intentdefiniton über das Amazon Developer Tool
+
+In Abbildung 7 ist zu sehen wie ein Intent definiert wird, in diesem Beispiel der AddIntent. Man erzeugt ihn über das Amazon Developer Tool und bezeichnet ihn sinngerecht. Zusätzlich werden noch Utterances und Slot Types \(Variablen\) definiert. Sie werden benötigt um den Intent auszuführen.
+
+Die Intelligenz des AddIntent wird dann in der Lamda Management Console ausprogrammiert.
+
+![](.gitbook/assets/unbenannt5.PNG)
+
+Abbildung 8: AddIntent
+
+In der Abbildung 8 ist zu sehen wie der AddIntent ausprogrammiert wird. Es wird der Modus gesetzt und definiert was Alexa zum Client sagen soll, wenn der AddIntent ausgeführt wird. Abhängig von der Antwort reagiert Alexa.
+
+**Notwendige Intents um die Anforderungen an den Skill zu erfüllen:**
+
+**- GeneratorIntent:** Startet den Skill und sorgt dafür, dass Alexa Anweisungen zur Einkaufsliste entgegen nimmt. "Alexa, starte Shop Note"
+
+- **AddIntent:** Alexa wurde um Hinzufügen eines Produktes gebeten und fragt nach einer Bestätigung der Aktion. "Füge \[Produkt\] zur Liste hinzu." , "\[Produkt\] hinzufügen"
+
+- **RemoveIntent:** Alexa wurde gebeten, ein Produkt von der Liste zu entfernen und bittet um Bestätigung. "\[Produkt\] entfernen!", "Alexa, ich habe \[Produkt\] eingekauft.
+
+- **ListIntent:** Alexa wurde gebeten, die Einkaufsliste auszugeben. "Einkaufsliste ausgeben", "Liste abfragen"
+
+- **EinkaufslisteLeerenIntent:** Alexa wurde gebeten, die Einkaufsliste zu löschen und fragt nach Bestätigung. "Liste leeren", "Alexa, ich war einkaufen"
+
+- **CanelIntent:** Beendet die Eingabe von Daten. „Beenden“
+
+Der Aufruf eines Intent wird weiterverarbeitet, indem eine dynamische URL erzeugt wird, die per GET-Request aufgerufen wird. Als command wird das jeweils zum Befehl gehörende Kommando ausgewählt, als Parameter **product** wird das genannte Produkt verwendet, welches von Alexa per Spracherkennung eingesetzt wird. Die Bestätigung erfolgt jeweils per **Ja** oder **Nein.**
+
+Nach dem GET-Request wartet der Intent auf Antwort vom Webserver und kann diese weiter verarbeiten. In der Regel wird ein Teil der Antwort ausgelesen, bzw. bei Erfolgsmeldung eine Bestätigung der Aktion ausgegeben.
+
+**Entwicklung des Backends**
+
+Aufrufe am Apache Webserver werden per GET-Request durchgeführt, welcher drei Parameter über die URL empfängt:
+
+* user
+* command
+* product
+
+Ein beispielhafter Request sieht wie folgt aus: [http://xxxx/einkaufslistengenerator.php?user=fabio&command=add&product=salami](http://xxxx/einkaufslistengenerator.php?user=fabio&command=add&product=salami)​
+
+Bei Aufruf dieser URL würde mit dem User "fabio" das Produkt "salami" zum Warenkorb hinzugefügt werden. Folgende Commands werden vom Webserver erkannt:
+
+* **add -** Fügt ein neues Product der Liste hinzu.
+* **remove** - Entfernt ein Produkt von der Liste
+* **list** - gibt die vollständige Liste aus
+* **reset** - leert die Liste vollständig.
+
+Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe Abbildung x\). Die Anfrage wird erst abgeschlossen, wenn der Webserver eine response verschickt. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet, im Falle von **list** besteht die Response aus einer Liste aller Produktbezeichnungen.
+
+![](.gitbook/assets/unbenannt6.PNG)
+
+Abbildung 9
+
 ## Smart Shop Integration via smartem Kassensystem
 
 **Betriebssystem:** Android
