@@ -118,3 +118,59 @@ Für die Erzeugung eines QR-Codes benötigt die App eine zXing Java-Bibliothek, 
 
 ## Smart Shop Integration via smartem Kassensystem
 
+**Betriebssystem:** Android
+
+**Anforderung an das Kassensystem:**
+
+·         Möglichkeit für Kundenanmeldung via QR-Code
+
+·         Anzeige aller Produkte
+
+·         Anzeige aller Produkte die abgescannt oder ausgewählt wurden, in listenform
+
+·         Möglichkeit Produkte via Barcode abzuscannen
+
+·         Nach dem Bezahlvorgang , sollen alle ausgewählten Produkte vom Einkaufzettel gestrichen werden, Produkte die noch nicht im Warenkorb eingetragen sind , sollen eingetragen werden und das Kaufdatum der Produkte soll aufgenommen werden
+
+**Startmaske**
+
+![](.gitbook/assets/6.PNG)
+
+Abbildung 6: Startmaske Kassensystem
+
+In Abbildung 6 ist die Startmaske des Smarten Kassensystems zu sehen. Wie man sieht gibt es zwei Modi. Einmal die Möglichkeit die Kasse direkt zu öffnen ohne Anmeldung des Kunden und die andere Möglichkeit ist es den Kunden sich anmelden zu lassen bevor die Kasse angezeigt wird.
+
+·         **KUNDEN LOGIN Button:** Eine neue Maske öffnet sich und es besteht die Möglichkeit den Kunden via QR-Code, sich anmelden zu lassen. Bevor die Kassenmaske anzeigt wird, wird eine Verbindung zu einer MySQL Datenbank aufgebaut. Es werden alle kundenspezifischen Daten geladen \(Warenkorb\) und alle relevanten Produktdaten.  
+
+à Dies kann in der Doku nicht veranschaulicht werden, da die Abbildungen von einem Android Emulator stammen. Mit diesem ist es nicht möglich ein Kamerabild zu zeigen, somit auch kein QR-Code oder Barcode Scann möglich, da diese über die Kamera gemacht wird.
+
+·         **KASSE Button:** Die Kassenmaske wird geöffnet. Es wird eine Verbindung zu einer MySQL Datenbank aufgebaut und alle relevanten Produktdaten geladen.
+
+**Kasse**
+
+![](.gitbook/assets/unbenannt1.PNG)
+
+Abbildung 7: Kassenmaske
+
+In Abbildung 7 ist die Kassenmaske zu sehen. Die Maske ist in 2 Fragmente aufgeteilt.
+
+In **Fragment 1** werden die ausgewählten Produkte aufgelistet. Sie werden entweder durch den Barcode Scan oder durch klicken eines Buttons aus Fragment 2, auf die Liste gesetzt.
+
+·         **DELETE BUTTON:** Wenn ein Produkt ausversehen auf die Liste gesetzt wird, kann durch markieren des Produktes mittels des RadioButtons und betätigen des DELETE Buttons, ein Produkt aus der Liste entfernt werden
+
+·         **BEZAHLEN BUTTON:** Die Funktion des Bezahl Buttons ist davon abhängig ob ein Kunde angemeldet ist oder nicht. Wenn kein Kunde angemeldet ist, dann wird nur die Produktliste geleert, der Bezahlvorgang abgeschlossen und die Startmaske anzeigt. Wenn ein Kunde angemeldet ist passiert einiges mehr im Hintergrund. Das Kassensystem baut eine Verbindung zu einer MySQL Datenbank auf, um die Produkte die auf der Liste sind von der Einkaufsliste des Kunden zu streichen, da diese dann als „eingekauft“ gelten. Gleichzeitig wird das Kaufdatum der jeweiligen Produkte in der Historie eingetragen. Zusätzlich werden Produkte die auf der Produktliste sind, jedoch nicht im Warenkorb des Kunden, seinem Warenkorb automatisch hinzugefügt.
+
+![](.gitbook/assets/unbenannt2.PNG)
+
+Abbildung 8: Automatisch Produkt in Warenkorb einfügen
+
+à Zum genaueren Verständnis, der Warenkorb beinhaltet die Produkte die der Kunde im Laufe der Zeit mindestens 1-mal eingekauft hat bzw. Produkte die der Kunde generell einkauft.
+
+**Fragment 2**  ist nochmal in zwei Segmente aufgeteilt. Jedes Segment ist eine Möglichkeit ein Produkt auf die Produktliste zu setzen. Zum einen ist es möglich durch klicken des Buttons **SCAN,** der einen Barcode Scanner öffnet, ein Produkt via Barcode auf die Liste zu setzen und zum anderen ist es möglich durch ein Button klick. Für jedes Produkt aus der Datenbank wird dynamisch, bei der Erzeugung der Oberfläche, ein Button generiert. Wird ein Produkt ausgewählt, sei es vom Barcode Scanner oder durch den Button, wird der Button entschärft, sodass Produkte nicht doppelt auf die Liste gesetzt werden \(siehe Abbildung 7, Käse, Joghurt und Milch\).
+
+Die dynamisch erzeugten Buttons werden mit zwei verschiedenen Farben markiert, wie in Abbildung 1 zu sehen. Die grün markierten Buttons bedeuten ein Kunde ist angemeldet und das diese Produkte sich im Warenkorb des Kunden befinden. Die gelb markierten Buttons bedeuten, wenn ein Kunde angemeldet ist, dass diese Produkte nicht im Warenkorb eingetragen sind. Wenn kein Kunde angemeldet ist, sind logischerweise alle Buttons gelb. \(siehe Abbildung 9\)
+
+![](.gitbook/assets/8.PNG)
+
+Abbildung 9: Ansicht des Kassensystems, wenn kein Kunde angemeldet ist
+
