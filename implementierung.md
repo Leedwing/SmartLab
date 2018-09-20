@@ -78,7 +78,7 @@ Der Warenkorb kann natürlich auch manuell bedient werden, indem eines der Produ
 
 ![](.gitbook/assets/3.PNG)
 
-Abbildung 3 Öffnen und Anzeigen Einkaufsliste
+Abbildung 3: Öffnen und Anzeigen Einkaufsliste
 
 Wie in Abbildung 3 sehr gut zu sehen ist, dass Produkte, die rot markiert bzw. die Verbrauchswahrscheinlichkeit über dem Schwellwert von 90% liegt, automatisch auf die Einkaufsliste gesetzt werden \(Siehe Abbildung 4: Butter, Joghurt und Salami\).
 
@@ -94,15 +94,15 @@ Die Einkaufliste kann auch, wie der Warenkorb, manuell bedient werden. Durch mar
 
 ![](.gitbook/assets/4.PNG)
 
-Abbildung 5 Kauf- und Verbrauchshistorie
+Abbildung 4: Kauf- und Verbrauchshistorie
 
-Eine weitere Funktion die, die App besitzt ist, wie in Abbildung 5 zu sehen, die Anzeige ein Einkaufs-und Verbrauchshistorie. Das heißt, es wird für jedes Produkt sein letztes Kaufdatum und das letzte Verbrauchsdatum angezeigt. Diese Information hilft dem User eine Übersicht zu bekommen über seinen Warenkorb und sie dienen zur Grundlage für die Berechnung des Kauf- und Verbrauchsverhaltens des Users.
+Eine weitere Funktion die, die App besitzt ist, wie in Abbildung 4 zu sehen, die Anzeige ein Einkaufs-und Verbrauchshistorie. Das heißt, es wird für jedes Produkt sein letztes Kaufdatum und das letzte Verbrauchsdatum angezeigt. Diese Information hilft dem User eine Übersicht zu bekommen über seinen Warenkorb und sie dienen zur Grundlage für die Berechnung des Kauf- und Verbrauchsverhaltens des Users.
 
 **Anmelde - / Registrierungsmaske**
 
 ![](.gitbook/assets/5.PNG)
 
-Abbildung 6 Anmelde- / Registrierungsmaske
+Abbildung 5: Anmelde- / Registrierungsmaske
 
 Durch die in Abbildung 6 zu sehende Funktion der App, ist es möglich sich einen User definierten QR-Code anzeigen zu lassen. Die App erzeugt den QR Code selbst. Dadurch wird es für die User möglich sich bspw. An einem Kassensystem zu registrieren, in dem QR Code ist der Vor – und Nachname enthalten.
 
@@ -138,21 +138,21 @@ Unter dem Hosted Service versteht man das Backend. Hier wird der Funktionscode i
 
 **Entwicklung des Amazon Alexa Skills mit JavaScript über AWS Lamda**
 
-Im Code sind mehrere sogenannte Intents hinterlegt, welche per passendem Sprachbefehl aufgerufen werden können. Intents sind vergleichbar mit Methoden die bspw. ausgeführt werden durch einen Button Klick. Beim Aufruf können auch bestimmte Informationen \(in diesem Fall Produkte\) per Variable übergeben werden.  Die Intents und Variablen müssen im Amazon Developer Tool definiert werden. Die Intelligenz wird dann im Programmcode, im AWS Lamda Tool, ausprogrammiert.
+Im Code sind mehrere sogenannte Intents hinterlegt, welche per passendem Sprachbefehl aufgerufen werden können. Intents sind vergleichbar mit Methoden die bspw. durch ein Button Klick ausgeführt werden. Beim Aufruf können auch bestimmte Informationen \(in diesem Fall Produkte\) per Variable übergeben werden.  Die Intents und Variablen müssen im Amazon Developer Tool definiert werden. Die Intelligenz wird dann im Programmcode, im AWS Lamda Tool, ausprogrammiert.
 
 ![](.gitbook/assets/unbenannt4.PNG)
 
-Abbildung 7: Ansicht , Intentdefiniton über das Amazon Developer Tool
+Abbildung 6: Ansicht , Intentdefiniton über das Amazon Developer Tool
 
-In Abbildung 7 ist zu sehen wie ein Intent definiert wird, in diesem Beispiel der AddIntent. Man erzeugt ihn über das Amazon Developer Tool und bezeichnet ihn sinngerecht. Zusätzlich werden noch Utterances und Slot Types \(Variablen\) definiert. Sie werden benötigt um den Intent auszuführen.
+In Abbildung 6 ist zu sehen wie ein Intent definiert wird, in diesem Beispiel der AddIntent. Man erzeugt ihn über das Amazon Developer Tool und bezeichnet ihn sinngerecht. Zusätzlich werden noch Utterances und Slot Types \(Variablen\) definiert. Sie werden benötigt um den Intent auszuführen.
 
 Die Intelligenz des AddIntent wird dann in der Lamda Management Console ausprogrammiert.
 
 ![](.gitbook/assets/unbenannt5.PNG)
 
-Abbildung 8: AddIntent
+Abbildung 7: AddIntent
 
-In der Abbildung 8 ist zu sehen wie der AddIntent ausprogrammiert wird. Es wird der Modus gesetzt und definiert was Alexa zum Client sagen soll, wenn der AddIntent ausgeführt wird. Abhängig von der Antwort reagiert Alexa.
+In der Abbildung 7 ist zu sehen wie der AddIntent ausprogrammiert wird. Es wird der Modus gesetzt und definiert was Alexa zum Client sagen soll, wenn der AddIntent ausgeführt wird. Abhängig von der Antwort reagiert Alexa.
 
 **Notwendige Intents um die Anforderungen an den Skill zu erfüllen:**
 
@@ -189,11 +189,11 @@ Bei Aufruf dieser URL würde mit dem User "fabio" das Produkt "salami" zum Waren
 * **list** - gibt die vollständige Liste aus
 * **reset** - leert die Liste vollständig.
 
-Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe Abbildung x\). Die Anfrage wird erst abgeschlossen, wenn der Webserver eine response verschickt. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet, im Falle von **list** besteht die Response aus einer Liste aller Produktbezeichnungen.
+Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe Abbildung 8\). Die Anfrage wird erst abgeschlossen, wenn der Webserver eine response verschickt. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet, im Falle von **list** besteht die Response aus einer Liste aller Produktbezeichnungen.
 
 ![](.gitbook/assets/unbenannt6.PNG)
 
-Abbildung 9
+Abbildung 8: Response und Callback Defintion
 
 ## Smart Shop Integration via smartem Kassensystem
 
@@ -215,9 +215,9 @@ Abbildung 9
 
 ![](.gitbook/assets/6.PNG)
 
-Abbildung 6: Startmaske Kassensystem
+Abbildung 9: Startmaske Kassensystem
 
-In Abbildung 6 ist die Startmaske des Smarten Kassensystems zu sehen. Wie man sieht gibt es zwei Modi. Einmal die Möglichkeit die Kasse direkt zu öffnen ohne Anmeldung des Kunden und die andere Möglichkeit ist es den Kunden sich anmelden zu lassen bevor die Kasse angezeigt wird.
+In Abbildung 9 ist die Startmaske des Smarten Kassensystems zu sehen. Wie man sieht gibt es zwei Modi. Einmal die Möglichkeit die Kasse direkt zu öffnen ohne Anmeldung des Kunden und die andere Möglichkeit ist es den Kunden sich anmelden zu lassen bevor die Kasse angezeigt wird.
 
 ·         **KUNDEN LOGIN Button:** Eine neue Maske öffnet sich und es besteht die Möglichkeit den Kunden via QR-Code, sich anmelden zu lassen. Bevor die Kassenmaske anzeigt wird, wird eine Verbindung zu einer MySQL Datenbank aufgebaut. Es werden alle kundenspezifischen Daten geladen \(Warenkorb\) und alle relevanten Produktdaten.  
 
@@ -229,9 +229,9 @@ In Abbildung 6 ist die Startmaske des Smarten Kassensystems zu sehen. Wie man si
 
 ![](.gitbook/assets/unbenannt1.PNG)
 
-Abbildung 7: Kassenmaske
+Abbildung 10: Kassenmaske
 
-In Abbildung 7 ist die Kassenmaske zu sehen. Die Maske ist in 2 Fragmente aufgeteilt.
+In Abbildung 10 ist die Kassenmaske zu sehen. Die Maske ist in 2 Fragmente aufgeteilt.
 
 In **Fragment 1** werden die ausgewählten Produkte aufgelistet. Sie werden entweder durch den Barcode Scan oder durch klicken eines Buttons aus Fragment 2, auf die Liste gesetzt.
 
@@ -241,7 +241,7 @@ In **Fragment 1** werden die ausgewählten Produkte aufgelistet. Sie werden entw
 
 ![](.gitbook/assets/unbenannt2.PNG)
 
-Abbildung 8: Automatisch Produkt in Warenkorb einfügen
+Abbildung 11: Automatisch Produkt in Warenkorb einfügen
 
 à Zum genaueren Verständnis, der Warenkorb beinhaltet die Produkte die der Kunde im Laufe der Zeit mindestens 1-mal eingekauft hat bzw. Produkte die der Kunde generell einkauft.
 
@@ -251,5 +251,5 @@ Die dynamisch erzeugten Buttons werden mit zwei verschiedenen Farben markiert, w
 
 ![](.gitbook/assets/8.PNG)
 
-Abbildung 9: Ansicht des Kassensystems, wenn kein Kunde angemeldet ist
+Abbildung 12: Ansicht des Kassensystems, wenn kein Kunde angemeldet ist
 
