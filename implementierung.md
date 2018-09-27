@@ -32,9 +32,23 @@ Um die kumulative Wahrscheinlichkeit zu berechnen, wird bei der Implementierung 
 
 **Vorschau Coding:**
 
-![](.gitbook/assets/coding2.PNG)
+```text
+//Erzeugt die Verteilungsfunktion und berechnet die Verbrauchtswahrscheinlichkeit.
+    public double computeKumulativeWahrscheinlichkeit(ArrayList<Integer> produktDaten,  int abgelaufeneTage)
+    {
+        double erwartungsWert = this.computeErwartungswert(produktDaten);
 
+        double standardAbweichung = this.computeStandardAbw(produktDaten);
 
+        //Verteiluntsfunktion wird erzeugt
+        NormalDistribution normDist = new NormalDistribution(erwartungsWert, standardAbweichung);
+
+        //Wahrscheinlichkeit, dass ein Produkt nach höchstens n-1 Tagen verbraucht wird: P(x<n)
+        double cumulWahrscheinlichkeit = normDist.cumulativeProbability(abgelaufeneTage);
+
+        return cumulWahrscheinlichkeit;
+    }
+```
 
 **Warenkorb**
 
@@ -95,9 +109,32 @@ Für die Erzeugung eines QR-Codes benötigt die App eine zXing Java-Bibliothek, 
 
 **Vorschau Coding**
 
-![](.gitbook/assets/coding1.PNG)
+```text
+QRCodeWriter writer = new QRCodeWriter();
+try
+{
+    //Erzeugung einer BitMatrix mit angegeben String
+    BitMatrix bitMatrix = writer.encode(vorname + " " + name, BarcodeFormat.QR_CODE, 512, 512);
 
-    
+    int width = bitMatrix.getWidth();
+    int height = bitMatrix.getHeight();
+    Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+
+    //Erzeugung des QRCodes in einer Bitmap
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+        }
+    }
+
+    ((ImageView) findViewById(R.id.imageView_qrcode)).setImageBitmap(bmp);
+
+}
+catch (WriterException e)
+{
+    e.printStackTrace();
+}
+```
 
 ## Smart Home Integration via Amazon Alexa
 
@@ -129,7 +166,25 @@ In Abbildung 3.6 ist zu sehen wie ein Intent definiert wird, in diesem Beispiel 
 
 Die Intelligenz des AddIntent wird dann in der Lamda Management Console ausprogrammiert.
 
-![](.gitbook/assets/unbenannt5.PNG)
+```text
+ 'AddIntent': function () {//-------------------------------------------------------------------------------------------------
+    //------------------
+        //this.emit(':tell', 'Ich bin im AddIntent');
+        
+        this.attributes.mode = MODES.ADD;
+        
+        if(this.event.request.intent.slots.product)
+        {
+            const product = this.event.request.intent.slots.product.value.toLowerCase();
+            this.attributes.product = product;
+            this.emit(':ask', 'Wollen Sie ' + product + ' auf die Einkaufsliste setzen ?', 'Wollen sie ' + product + 'hinzufügen ?');
+        }
+        else
+        {
+            this.emit(':tell', 'ERROR_MESSAGE');
+        }
+    }
+```
 
 Abbildung 3.7: AddIntent
 
@@ -167,7 +222,44 @@ Bei Aufruf dieser URL würde mit dem User "fabio" das Produkt "salami" zum Waren
 
 Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe Abbildung 3.8\). Die Anfrage wird erst abgeschlossen, wenn der Webserver eine response verschickt. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet, im Falle von **list** besteht die Response aus einer Liste aller Produktbezeichnungen.
 
-![](.gitbook/assets/unbenannt6.PNG)
+```text
+function getResult(user, url, callback) {
+    //   ---------
+    var result = "";
+    //var path = 'var/wwww/html/einkaufslistengenerator.php?user=' + user;
+    var path = '/einkaufslistengenerator.php?user=' + user;
+    //var path = '/einkaufslistengenerator.php?';
+    
+    if (url) {
+        path += url;
+    }
+    
+    const options = {
+        host: '95.179.151.124',
+        path: path,
+        method: 'GET'
+    };
+    
+    
+     HTTP.get(options, response => {
+        response.setEncoding('utf8');
+        var responseString = '';
+        
+        response.on('data', data => {
+            responseString += data;
+            console.log(responseString);
+        });
+        
+        response.on('end', () => {
+            const json = JSON.parse(responseString); // {'result': 'ivo'};
+            console.log(callback(json.result));
+            callback(json.result); // z.B. 'ivo', ['a', 'b', 'c']
+        });
+    });
+    
+    return result;
+}
+```
 
 Abbildung 3.8: Response und Callback Defintion
 
