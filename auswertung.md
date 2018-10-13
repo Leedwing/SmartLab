@@ -1,4 +1,4 @@
-# Simulation/Auswertung\(?\)
+# Simulation und Auswertung
 
 ## Definitionen
 
