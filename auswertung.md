@@ -61,22 +61,22 @@ Die folgende Abbildung fasst den Simulationsaufbau zusammen.
 
 Für die Simulation wurden die folgenden Schritte durchgeführt:
 
-* Erstellung einer Persona: zum Beispiel ein Sportler der bspw. Butter immer innerhalb von 17 bis 22 Tagen verbraucht hat und der immer alle 5 bis 7 Tage einkaufen geht.
+* Erstellung einer Persona: zum Beispiel ein Sportler der Butter innerhalb von 17 bis 22 Tagen verbraucht hat und alle 5 bis 7 Tage einkaufen geht.
 
 ```text
-	// Personas Definition
-	// Sportler
-	Map<String, Produkt> sportlerProduktMap = new HashMap<String, Produkt>();
-	public void setSportlerProduktMap() {
-		sportlerProduktMap.put("Butter", new Produkt("Butter", 17, 22));
-		sportlerProduktMap.put("Milch", new Produkt("Milch", 3, 7));
-		sportlerProduktMap.put("Kaese", new Produkt("Kaese", 7, 10));
-		sportlerProduktMap.put("Salami", new Produkt("Salami", 5, 7));
-		sportlerProduktMap.put("Joghurt", new Produkt("Joghurt", 20, 25));
-	}
+// Persona Definition: Beispiel Sportler
+Map<String, Produkt> sportlerProduktMap = new HashMap<String, Produkt>();
+
+public void setSportlerProduktMap() {
+	sportlerProduktMap.put("Butter", new Produkt("Butter", 17, 22));
+	sportlerProduktMap.put("Milch", new Produkt("Milch", 3, 7));
+	sportlerProduktMap.put("Kaese", new Produkt("Kaese", 7, 10));
+	sportlerProduktMap.put("Salami", new Produkt("Salami", 5, 7));
+	sportlerProduktMap.put("Joghurt", new Produkt("Joghurt", 20, 25));
+}
 ```
 
-* Erstellung vom Verbrauchsablauf: auf Basis von den vordefinierten  Personadaten wird random einen Verbrauchs- sowie einen Einkaufsablauf simuliert, welche eine ideale bzw. \(Soll-\) Einkaufsliste für die Persona darstellt. Diese ideale Einkaufsliste wird als .csv Datei um eine weitere Verarbeitung bzw. Auswertung bereitgestellt. Die Zahlen sind der Einkaufsablauf während die mit einem Semikolon getrennte Produktlisten die Solllisten an den entsprechenden Einkaufstage sind.
+* Erstellung vom Verbrauchsablauf: auf Basis von den vordefinierten  Personadaten wird zufällig ein Verbrauchs- sowie einen Einkaufsablauf simuliert, welcher eine ideale Einkaufsliste \(Soll-Liste\) für die Persona darstellt. Diese ideale Einkaufsliste wird als csv-Datei um eine weitere Verarbeitung bzw. Auswertung bereitgestellt. Die Zahlen sind der Einkaufsablauf während die mit einem Semikolon getrennte Produktlisten die Soll-Listen an den entsprechenden Einkaufstage sind.
 
 ```text
 ---------------------------
