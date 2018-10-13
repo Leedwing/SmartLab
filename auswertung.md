@@ -55,6 +55,73 @@ In der Simulation verwenden wir diese Matrix, um verschiedenste Verhaltensweisen
 
 ## Simulationsaufbau
 
+Die folgende Abbildung fasst den Simulationsaufbau zusammen.
+
+![Abbildung: Simulationsaufbau](.gitbook/assets/simulationsaufbau.jpg)
+
+Für die Simulation wurden die folgenden Schritte durchgeführt:
+
+* Erstellung einer Persona: zum Beispiel ein Sportler der bspw. Butter immer innerhalb von 17 bis 22 Tagen verbraucht hat und der immer alle 5 bis 7 Tage einkaufen geht.
+
+```text
+	// Personas Definition
+	// Sportler
+	Map<String, Produkt> sportlerProduktMap = new HashMap<String, Produkt>();
+	public void setSportlerProduktMap() {
+		sportlerProduktMap.put("Butter", new Produkt("Butter", 17, 22));
+		sportlerProduktMap.put("Milch", new Produkt("Milch", 3, 7));
+		sportlerProduktMap.put("Kaese", new Produkt("Kaese", 7, 10));
+		sportlerProduktMap.put("Salami", new Produkt("Salami", 5, 7));
+		sportlerProduktMap.put("Joghurt", new Produkt("Joghurt", 20, 25));
+	}
+```
+
+* Erstellung vom Verbrauchsablauf: auf Basis von den vordefinierten  Personadaten wird random einen Verbrauchs- sowie einen Einkaufsablauf simuliert, welche eine ideale bzw. \(Soll-\) Einkaufsliste für die Persona darstellt. Diese ideale Einkaufsliste wird als .csv Datei um eine weitere Verarbeitung bzw. Auswertung bereitgestellt. Die Zahlen sind der Einkaufsablauf während die mit einem Semikolon getrennte Produktlisten die Solllisten an den entsprechenden Einkaufstage sind.
+
+```text
+---------------------------
+-----Soll-Einkaufsliste-----
+---------------------------
+4;Milch;
+7;Milch;Kaese;Salami;
+13;Milch;Salami;
+17;Butter;Milch;Kaese;
+20;Salami;Joghurt;
+25;Milch;Salami;
+28;Kaese;
+32;Milch;Salami;
+38;Butter;Milch;Kaese;Salami;
+42;Milch;Joghurt;
+47;Milch;Kaese;Salami;
+54;Milch;Salami;
+57;Butter;Milch;Kaese;
+60;Salami;
+64;Milch;Kaese;
+68;Salami;Joghurt;
+73;Milch;Kaese;Salami;
+78;Butter;Milch;Salami;
+82;Milch;Kaese;
+85;Salami;
+90;Milch;Kaese;
+93;Milch;Salami;Joghurt;
+97;Milch;
+101;Butter;Milch;Kaese;Salami;
+109;Milch;Salami;
+113;Milch;Kaese;
+117;Salami;Joghurt;
+120;Butter;Milch;
+124;Milch;Kaese;Salami;
+128;Milch;
+131;Salami;
+135;Milch;Kaese;
+139;Butter;Salami;
+144;Milch;Kaese;Joghurt;
+149;Milch;Salami;
+```
+
+* Abbildung der Smart Integration Matrix: die Matrix-Werte werden  dem Simulator als Parameter übergeben.
+* Simulation: die Simulation erfolgt, indem die Methode "simuliereAblauf\(\)" aufgerufen wird. Diese Methode bildet den Simulator ab und nimmt  neben den Matrix-Werten eine bestimmte Persona, ihre ideale Liste und den Zeitraum über den die Simulation ablaufen darf als Parameter. 
+
 ## Simulationsergebnisse
 
 
