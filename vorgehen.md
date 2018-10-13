@@ -2,45 +2,124 @@
 
 ## Marktanalyse
 
-Wer die Smart Factory will, muss drei Kernaufgaben lösen: Benötigt werden die Akzeptanz der Belegschaft, die Vernetzung aller Maschinen sowie die Fähigkeit, Big Data in Smart Data zu verwandeln. In Verbindung mit einer integrierten Cloudfähigen IT-Plattform für Smart Shop sowie für Smart Home Top Floor wird die synchrone Echtzeit-Steuerung weltweiter Anlagenverbünde möglich. Auf diese Weise lassen sich Produktivitätsgewinne im zweistelligen Bereich erreichen.
+Smart Shop bzw. Smart Home stellt den Einsatz von technischen Systemen, automatisierten Verfahren und vernetzten, ferngesteuerten Geräten in Einkaufsläden bzw. Wohnräumen und Häusern dar. Die Funktionen dienen hauptsächlich dazu, die Lebensqualität in irgendeiner Form zu erhöhen. Die Kommunikation und Steuerung der Smart Home und Smart Shop Technik erfolgt dabei über gängige Funkstandards wie WLAN, Bluetooth, ZigBee oder Z-Wave. Die zentrale Steuerungseinheit wird auch als Hub oder Gateway bezeichnet. Geräte starten, steuern und überwachen selbstständig je nach Szenario und Programmierung bestimmte Abläufe im Haushalt sowie in Supermärkten. Interoperabilität ist dabei das Zauberwort.   
+Denn bspw. schält sich die Heizung nur aus, wenn das Fenster geöffnet wird. Ist keine Interoperabilität zwischen den Elementen gegeben, ist das Home bzw. der Shop schlichtweg nicht smart. 
 
-Smart Shop/Home bezeichnet den Einsatz von technischen Systemen, automatisierten Verfahren und vernetzten, ferngesteuerten Geräten in Wohnräumen und Häusern. Die Funktionen dienen vornehmlich dazu, die Lebensqualität und den Wohnkomfort zu erhöhen. Weitere Ziele sind eine erhöhte Sicherheit und effizientere Energienutzung auf Grundlage vernetzter und fernsteuerbarer Geräte. Die Kommunikation und Steuerung der Smart Home/Shop Technik erfolgt dabei über gängige Funkstandards wie WLAN, Bluetooth, ZigBee oder Z-Wave. Die Zentrale wird auch als Hub oder Gateway bezeichnet. Geräte starten, steuern und überwachen selbstständig je nach Szenario und Programmierung bestimmte Abläufe im Haushalt sowie in Supermarken. Interoperabilität ist das Zauberwort. Sind Geräte untereinander interoperabel, können Sie miteinander kommunizieren. Nur dann aktiviert sich die Alarmanlage, wenn die Rolläden nach unten fahren. Nur dann schaltet sich die Heizung aus, wenn das Fenster geöffnet wird. Ist keine Interoperabiltät zwischen den Elementen gegeben, ist das Home schlichtweg nicht smart. Wie verwandelt sich das Zuhause ins Smart Home und das Supermarkt ins Smart Shop? Die Installation und Einrichtung der benötigten Komponenten lässt sich auch ohne technische Fachkenntnisse erreichen/umsetzen. Folgende Aspekte sollten bei der Planung beachtet werden: 
+Auf dem Markt existiert eine Vielzahl an Herstellern, die IOT-Devices für die unterschiedlichsten Bereiche wie z.B. Smart Home oder Smart Shop anbieten. Aktuelle 'Big Player' im Smart Home Bereich sind bspw. Amazon, Bosch und Google.   
+In der folgenden Tabelle sind einige Geräte beispielhaft aufgeführt:
 
-* Benötigt wird ein Internetanschluss und WLAN
-* Smartphone oder Tablet eignen sich am besten zur Steuerung und Überwachung der Geräte
-* Ein kabelloses Netzwerk ist zeitgemäß, komfortabel und elegant, die Übertragung per Kabel allerdings sicherer
-* Sollen die Geräte über die Zentrale programmierbar und interoperabel sein oder reicht eine Lösung, die alleinstehend nutzbar ist?
-* Sind alle Geräte mit demselben Funkstandard \(z.B. WLAN\) verbunden?
-* Die Zentrale sollte so platziert werden, dass alle anzusteuernden Geräte innerhalb ihres Reichweitenradius liegen
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Smart Home Geräte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <ul>
+          <li>Sprachassistenten</li>
+          <li>Lichtsysteme</li>
+          <li>Thermostate</li>
+          <li>Sicherheitssysteme, wie z.B.:
+            <ul>
+              <li>Überwachungskameras</li>
+              <li>Rauchmelder</li>
+              <li>Schließsysteme</li>
+              <li>Warn- und Signalgeräte</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>Im Vergleich zum Smart Home Bereich enthält der Smart Shop Bereich bisher eine viel kleinere Produktpalette. Ein paar wenige beispielhafte Geräte die in der heutigen Zeit bereits eingesetzt werden, sind in der folgenden Tabelle dargestellt:
 
-### Touchpoints zwischen Smart Shop und Smart Home:
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Smart Shop Geräte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <ul>
+          <li>Smart Screens</li>
+          <li>digitale Preisschilder</li>
+          <li>smarte Kassensysteme</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>### Technologien und Standards
 
-Seit Jahrzehnten helfen unterschiedlichste IT-Plattformen dabei, den Alltag des Menschen angenehmer zu gestalten, Abläufe zu beschleunigen und so Zeit und Arbeit zu sparen. Welche zusätzlichen Vorteile bringt da Smart Home/Shop? Ohne Smart Home muss der Mensch sämtliche Impulse für die Maschinen setzen, er muss Abläufe manuell starten und jedes Gerät einzeln zum passenden Zeitpunkt aktivieren. Smart Home nimmt ihm diese Arbeit ab, indem es Komponenten miteinander kommunizieren lässt weitere Vorteile hat Amazon schafft mit seinem neuen Shop-Konzept Amazon Go den lästigsten Teil beim Einkauf ab. Das Bezahlen an der Kasse. Schlange stehen war gestern. Möglich macht das "Sensor Fusion" Amazon Go, der neue Convenience-Store für Lebensmittel, Snacks und Getränke in Seattle \(2131 Seventh Avenue\) ist vermutlich weltweit der fortschrittlichste Supermarkt. Denn er kommt ohne klassische Kassen aus. Die Kunden checken per App und QR-Code-Scan im Laden ein, Sensoren – Amazon raunt im Video von „Sensor Fusion“ - erkennen, welche Produkte aus dem Regal genommen werden. Die Technik erlaubt, dass der Kunde den Laden dann einfach mit der Ware verlassen kann. Die Abrechnung erfolgt wiederum per App. Vorerst können nur Amazon-Mitarbeiter den Laden und seine Technik testen. Amazon selbst begnügt sich mit nebulösen Schlagworten, spricht von “computer vision, sensor fusion and deep learning” und lässt lediglich durchblicken, dass man Technologien einsetze, wie man sie von selbstfahrenden Autos kennt. Kameras und eine Kombination unterschiedlicher Sensoren füttern also einen lernenden Algorithmus, der erkennen soll, welche Produkte Kunden aus dem Regal nehmen – oder wieder zurückstellen. Die Daten über den Nutzer spielen nämlich womöglich eine zentrale Rolle für die künstliche Intelligenz des lernenden Algorithmus und die Erkennung der Artikel.
+Als Teil eines IoT-Ökosystems sind Machine-to-Machine \(M2M\) Dienste einer der wichtigsten Bereiche, in denen die Automatisierung von Geschäftsprozessen stattfindet. Um die Kommunikation zwischen den Maschinen zu ermöglichen, wurde eine breite Palette von Technologien entwickelt, um verschiedensten Anforderungen wie Energieverwaltung, Geschwindigkeit, Komplexität usw. gerecht zu werden.  
+Die folgende Klassifizierung zeigt, welche Protokolle für die Infrastruktur, Identifikation, Kommunikation und Transport, für den Datentransfer sowie für Device Management und Semantic verwendet werden können.
 
-Das Konzept eignet sich nicht nur für Lebensmittel, sondern lässt sich auch auf andere Branchen wie Waschmaschine, Lampen oder Kaffeeautomaten übertragen. Haushaltsgeräte lassen sich via Zeitsteuerung kontrollieren. Geräte wie Bewegungsmelder, Kameras, Rollläden oder Thermostate lösen vom Nutzer programmierte Abläufe aus. Herzstück des Smart Home ist die Zentrale, mit der unterschiedliche smarte Komponenten verbunden und per PC, Smartphone oder Tablet steuerbar gemacht werden übertragen. Da der Kunde das Smartphone einsetzen muss, um sich Zugang zum Laden zu verschaffen, ist er auch offener für weitere mobile Informationen \(aka Angebote\) per App. Durch die Verknüpfung mit der App sammelt Amazon Daten über das OfflineEinkaufsverhalten. Diese Informationen können wiederum für Online-Angebote genutzt werden. Umgekehrt lässt sich analysieren, welche Online-Offerten Einfluss auf das stationäre Einkaufsverhalten haben.
+| Layer | Protokolle |
+| :--- | :--- |
+| **Infrastruktur** | 6LowPAN, IPv4/IPv6, RPL |
+| **Identifikation** | EPC, uCode, IPv6, URIs |
+| **Kommunikation und Transport** | Wifi, Bluetooth, LPWAN, ZigBee, Z-Wave, Smart Beacons |
+| **Datenübertragung** | MQTT, CoAP, AMQP, Websocket, Node, REST |
+| **Geräteverwaltung** | TR-069, OMA-DM |
+| **Semantik** | JSON-LD, Web Thing Model |
 
-## Entwicklung des Geschäftsmodells
+Die größte Unsicherheit der potentiellen Kunden von IOT-Geräten besteht oftmals in der Inkompatibilität von Geräten der unterschiedlichen Hersteller. Die Inkompatibilität ist auf Transport-Ebene den unterschiedlichsten Protokollen zu finden. Hier konkurrieren Funkprotokolle wie bspw. Zigbee, Z-Wave, Wifi, Bluetooth, EnOcean, uvm. miteinander. Zusätzlich stehen die vereinzelt eingesetzten kabelgebundenen Systeme wie Powerline-basierte Lösungen in Konkurrenz. Dieser Protokoll-„Wirrwarr“ macht es für den Endkunden wirklich schwierig für seinen Bereich und den eigenen Wünschen eine entsprechend optimierte Lösung zu finden, da der Großteil der Systeme schlichtweg nicht miteinander kompatibel sind.
 
-### Idee/App-Vorstellung:
+IOT-Hersteller bemühen sich jedoch nicht um einen einheitlichen Standard, sondern entwickeln meist proprietäre Protokolle und Standards. Dies hat dazu geführt, dass es unzählige ‚Standards‘ und Protokolle im Smart Home Bereich gibt.  Durch die vielen oftmals auch ‚kleinen‘ Anbieter hat sich der Trend entwickelt, dass für jedes smarte Gerät auch eine entsprechende Bridge erworben werden muss, um das bzw. die Geräte ansteuern zu können. D.h. werden in einem Haushalt Produkte von einem verschiedenen Hersteller verwendet, müssen i.d.R. auch entsprechend viele Bridges erworben werden.  
+Eine einheitliche Steuerung der Geräte ist oftmals überhaupt nicht möglich, da sich die Plattformen welche zur Steuerung verwendet werden in ihren Protokollstandards ebenfalls unterscheiden können. Um dieses Problem zu beheben gibt es verschiedene Möglichkeiten:
 
-Smart Home und Smart Shop ist eine super Sache zur Erhöhung des Komforts, der Einbruchsicherheit und der Energieeinsparung. Die technische Revolution im Supermarkt sowie Zuhause ist eher unauffällig. Sie wird deutlich dadurch, dass viele Informationen digital zu mir kommen.
+1. Schaffung eines einheitlichen Standards  \(auf Transportebene – d.h. einheitliches Netzwerkprotokoll, Pairing, Bereitstellung von Services, …\)
+2. Verwendung einer Integrationsplattform  \(Vereinigung der verschiedenen Standards durch entsprechende Adapter – Übersetzung der verschiedenen Protokolle in 'einheitliche Sprache‘.\)
+3. Eine Kombination aus 1\) und 2\)
 
- **Idee:** Erstellung einer intelligenten digitalen Einkaufsliste mit folgenden Funktionen:
+### Touchpoints zwischen Smart Home und Smart Shop
 
-* dynamische Anpassung der Liste
+ Die Verknüpfung von Smart Home und Smart Shop ist nicht trivial, da die beiden Bereiche i.d.R. nichts miteinander zu tun haben. Mit Verknüfung ist gemeint, die beiden Bereiche in irgendeiner Art zusammenzuführen, bzw. durch die Ergänzung des einen durch den anderen einen Mehrwert zu erzeugen.
+
+**Definition übergreifende und ergänzende Anwendung**
+
+Werden Smart Home und Smart Shop in einer Anwendung vereint, das heißt dass beide Bereiche für eine bestimmt Anwendung dienen, kann zwischen übergreifenden und ergänzenden Anwendungen unterschieden werden. **Übergreifende Anwendungen** entsprechen dabei Anwendungen, welche sich an Services aus zwei bzw. in unserem Fall beiden Bereichen, also Smart Home und Smart Shop, bedienen \(wie in _Abbildung 2.2_ zu sehen\).  **Ergänzende Anwendungen** sind Anwendungen, welche durch eine andere Anwendung an Funktionen erweitert bzw. ergänzt werden, dabei der Informationsfluss jedoch nur in eine Richtung fließt.
+
+![Abbildung 2.1: Erg&#xE4;nzende Anwendung](.gitbook/assets/ergaenzende-app.png)
+
+Ein Beispiel für eine übergreifende Anwendung: Inventarmanagement im Home sowie im Shop-Bereich, d.h. Verknüpfung der Informationen zur Bereitstellung von übergreifenden Services, wie z.B.:
+
+* eine App-Angebotsbenachrichtigung  für einen definierten Produktbestand des Smart Home‘s
+* Benachrichtigung des Smart Shops über Kaufprognosen anhand der Informationen des Smart Home‘s
+
+_Abbildung 2.1_ stellt die Beziehung zwischen Smart Home und Smart Shop im Kontext einer ergänzenden Anwendung dar. Dabei ergänzt in Beispiel 1 der Smart Shop das Smart Home, indem Angebotsbenachichtigungen für ausgewählte Produkte an den Kunden in sein Eigenheim gesendet werden. In Beispiel 2 ergänzt das Smart Home den Smart Shop, indem die im Smart Home angelegte Einkaufsliste im Shop abgerufen werden kann. 
+
+![Abbildung 2.2: &#xDC;bergreifende Anwendung](.gitbook/assets/uebergreifende-app.png)
+
+Diese grundlegende Unterscheidung zwischen einer übergreifenden und einer ergänzenden Anwendung wurde benötigt, um uns von vorhandenen Anwendungen und Techniken abgrenzen zu können. Übergreifende Anwendungen sind nämlich noch nicht, bzw. zumindest nicht in der breiten Masse vorhanden. Ergänzende Anwendungen hingegen sind bereits einige zu finden.
+
+## Entwurf
+
+Idee war es, eine übergreifende Anwendung zu implementieren, die den Einkaufsprozess und das Inventarmanagement sowohl für Haushalte als auch für Retail vereinfacht bzw. unterstützt. 
+
+**Anwendung:** Intelligente digitale Einkaufslisten-Applikation mit folgenden Funktionen:
+
+* dynamische Anpassung der Einkaufsliste
+* \(Teil-\)automatisiertes Befüllen der Einkaufsliste
 * Kategorisierung der Produkte nach Dringlichkeit
 
 Diese Funktionen werden anhand folgender Informationen realisiert:
 
-* Kaufverhalten des Users
-* Haltbarkeitsdaten gekaufter Produkte
-* Verbrauchsdaten gekaufter Produkte
+* Verbrauchs- und Kaufverhalten des Users
+* Statistische Haltbarkeitsdaten
 
-### Wie bestimme ich eine Wahrscheinlichkeit ob ein Produkt gebraucht wird?
+Im Folgenden werden die für eine Implementierung auftretenden Fragen beantwortet. 
 
-Verschiedene Anwendungsfälle sind möglich, aber wir konzentrieren uns auf den Teilprozess "Einkaufsliste ausfüllen" des Einkaufsprozesses.
+### Wie wird die Wahrscheinlichkeit ob ein Produkt benötigt wird basierend auf Verbrauchs- und Haltbarkeitsdaten bestimmt?
 
-![](.gitbook/assets/image%20%286%29.png)
+Um eine automatisierte Verwaltung der Einkaufsliste zu ermöglichen, muss die Wahrscheinlichkeit bestimmt werden können, ob ein bestimmtes Produkt bereits verbraucht ist oder nicht. Dies kann auf verschiedenste Art und weise realisiert werden. 
+
+Abbildung XY 
+
+![Abbildung](.gitbook/assets/image%20%286%29.png)
 
 * Smart Home: Erfassung von Verbrauchsdaten über Smart Home Geräte \(Alexa\).
 * Smart Shop: Erfassung von Ablaufdaten von Produkten / Produktgruppen und Lieferung von Einkaufsdaten eines Verbrauchers über Smart-Shop-Geräte.
