@@ -205,7 +205,7 @@ Nachdem wir die Wahrscheinlichkeitsdichtefunktion erstellt haben, können wir da
 
 ### Welchen Mehrwert liefert Smart Shop?
 
-In einer Welt mit sofortigem Zugriff auf Informationen, wo der Wettbewerb nur einen Klick entfernt ist, die Gewinnung und Bindung von Kunden ist von entscheidender Bedeutung für die Überleben Mobile Technologien können helfen, das Ziel zu erreichen. diese Ziele durch die Verbesserung der Einkaufsmöglichkeiten zu erreichen. Erfahrung und Informationsbeschaffung und Intimität mit den Kunden. Dies wird den Einzelhändlern neue Möglichkeiten eröffnen und Hersteller, mit denen sie sich stärker befassen sollten.
+Mit neuen Smart Labels können wir eine angereicherte Erfahrung im Laden bieten, die es Kunden ermöglicht, direkt mit Produkten zu interagieren und bei Bedarf erweiterte Informationen zu erhalten.
 
 #### Idee : Erstellung  intelligentes Kassensystem:
 
@@ -222,8 +222,6 @@ wir haben uns entschieden ein intelligentes Kassensystem zu erstellen mit folgen
   * Das Kaufdatum der Produkte soll aufgenommen werden
 
 ### Welchen Mehrwert liefert Smart Home?
-
-Bevor wir uns darauf konzentrieren, wie Smart Home unsere Einkaufsprozesse optimieren kann, geben wir einen kurzen Überblick darüber und über seine Möglichkeiten. Der Smart-Home-Markt ist einer der am schnellsten wachsenden Märkte der Welt. Smart-Home-Geräte sind bereits in fast jedem Aspekt des Wohnens integriert, zum Beispiel: Unterhaltung, Sicherheit, Hauswirtschaft, Überwachung usw.Diese Geräte verbessern die Prozesse, indem sie zusätzliche Dienste bereitstellen oder den Aufwand für bestimmte Aufgaben reduzieren. Diese schnelle Entwicklung wird durch eine schnelle Verbesserung von Software und Hardware ermöglicht.
 
 Viele Prozesse können mithilfe von Smart Home verbessert werden. In diesem Abschnitt konzentrieren wir uns jedoch auf die Verbesserung des Einkaufsprozesses.
 
