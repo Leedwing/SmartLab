@@ -126,7 +126,7 @@ Nachdem wir die Wahrscheinlichkeitsdichtefunktion erstellt haben, können wir da
 
 ### Welchen Mehrwert liefert Smart Shop?
 
-In einer Welt mit sofortigem Zugriff auf Informationen, wo der Wettbewerb nur einen Klick entfernt ist, die Gewinnung und Bindung von Kunden ist von entscheidender Bedeutung für die Überleben Mobile Technologien können helfen, das Ziel zu erreichen. diese Ziele durch die Verbesserung der Einkaufsmöglichkeiten zu erreichen. Erfahrung und Informationsbeschaffung und Intimität mit den Kunden. Dies wird den Einzelhändlern neue Möglichkeiten eröffnen. und Hersteller, mit denen sie sich stärker befassen sollten. Käufer, die neue Einkaufsperspektiven eröffnen, mit einem verbesserten Einkaufserlebnis für Konsumenten und neue Geschäftsmöglichkeiten für die Einzelhändler und Hersteller.
+In einer Welt mit sofortigem Zugriff auf Informationen, wo der Wettbewerb nur einen Klick entfernt ist, die Gewinnung und Bindung von Kunden ist von entscheidender Bedeutung für die Überleben Mobile Technologien können helfen, das Ziel zu erreichen. diese Ziele durch die Verbesserung der Einkaufsmöglichkeiten zu erreichen. Erfahrung und Informationsbeschaffung und Intimität mit den Kunden. Dies wird den Einzelhändlern neue Möglichkeiten eröffnen und Hersteller, mit denen sie sich stärker befassen sollten.
 
 #### Idee : Erstellung  intelligentes Kassensystem:
 
