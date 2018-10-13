@@ -32,16 +32,15 @@ Die folgende Tabelle veranschaulicht dies am Beispiel einer Sportler-Persona:
 
 ### Smart Integration Matrix
 
-Die Smart Integration Matrix zeigt die in unserem Szenario möglichen Varianten wie eine Einkaufsliste befüllt werden kann. Dabei sind für die drei definierten Möglichkeiten \('Manuell', 'Smart Home' & 'Smart Shop'\) jeweils Qualitätsstufen angegeben, welche das Maß der Qualität der Nutzung der drei Verwaltungsmöglichkeiten darstellt.   
-Diese Qualitätsstufen können Werte zwischen 0 und 3 annehmen, wobei eine '0' bedeute, dass diese Komponente nicht verwendet wird und eine '3' einer sehr sorgfältigen Verwendung entspricht.
+Die Smart Integration Matrix zeigt die in unserem Szenario möglichen Varianten wie eine Einkaufsliste befüllt werden kann. Dabei sind für die zwei definierten Möglichkeiten \('Manuell', 'Smart Home'\) jeweils Qualitätsstufen angegeben, welche das Maß der Qualität der Nutzung der zwei Verwaltungsmöglichkeiten darstellt. Diese Qualitätsstufen können Werte zwischen 0 und 3 annehmen, wobei eine '0' bedeute, dass diese Komponente nicht verwendet wird und eine '3' einer sehr sorgfältigen Verwendung entspricht.
 
 Die Tabelle der möglichen Werte ist im Folgenden dargestellt: 
 
-|  | **App** |    | **Smart Home** | **Smart Shop** | **Qapp** | **Qhome** | **Qshop** |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Mögliche Werte: | 0 / 1 |    | 0 / 1 | 0 / 1 | 0 / 1 / 2 / 3 | 0 / 1 / 2 / 3 | 0 / 1 / 2 / 3 |
+|  | **App** |    | **Smart Home** | **Qapp** | **Qhome** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Mögliche Werte: | 0 / 1 |    | 0 / 1 | 0 / 1 / 2 / 3 | 0 / 1 / 2 / 3 |
 
-Die möglichen Werte \(0 / 1\) in Spalte App, Smart Home und Smart Shop geben an, ob die Komponente verwendet wird. Die in Spalten Qapp, Qhome & Qshop angegebenen Qualitätsmaße geben an, wie gut eine bestimmte Komponente verwendet wird. Die Quaitätsstufen sind bestimmten Aufnahme-Wahrscheinlichkeiten zugeordnet. Diese Aufnahme-Wahrscheinlichkeit gibt an, mit welcher Wahrscheinlichkeit ein Produkt zum Zeitpunkt des Verbrauchs oder des Ablaufs durch die entsprechende Komponente vom Nutzer in die Einkaufliste aufgenommen wird.  
+Die möglichen Werte \(0 / 1\) in Spalte App und Smart Home geben an, ob die Komponente verwendet wird. Die in Spalten Qapp und Qhome angegebenen Qualitätsmaße geben an, wie gut die bestimmte Komponente verwendet wird. Die Quaitätsstufen sind vordefinierten Aufnahme-Wahrscheinlichkeiten zugeordnet. Diese Aufnahme-Wahrscheinlichkeit gibt an, mit welcher Wahrscheinlichkeit ein Produkt zum Zeitpunkt des Verbrauchs oder des Ablaufs durch die entsprechende Komponente vom Nutzer in die Einkaufsliste aufgenommen wird.  
 Dieser Zuordnung ist in folgender Tabelle dargestellt:
 
 | Qualitätsstufe | Beschreibung | Aufnahme-Wahrscheinlichkeit |
@@ -61,7 +60,7 @@ Die folgende Abbildung fasst den Simulationsaufbau zusammen.
 
 Für die Simulation wurden die folgenden Schritte durchgeführt:
 
-* Erstellung einer Persona: zum Beispiel ein Sportler der Butter innerhalb von 17 bis 22 Tagen verbraucht hat und alle 5 bis 7 Tage einkaufen geht.
+* **Erstellung einer Persona** Beispielsweise ein Sportler der Butter innerhalb von 17 bis 22 Tagen verbraucht hat und alle 5 bis 7 Tage einkaufen geht. Im folgenden Codeblock ist eine beispielhafte Definition einer Persona in unserer Applikation dargestellt.
 
 ```text
 // Persona Definition: Beispiel Sportler
@@ -76,8 +75,10 @@ public void setSportlerProduktMap() {
 }
 ```
 
-* Erstellung vom Verbrauchsablauf: auf Basis von den vordefinierten  Personadaten wird zufällig ein Verbrauchs- sowie einen Einkaufsablauf simuliert, welcher eine ideale Einkaufsliste \(Soll-Liste\) für die Persona darstellt. Diese ideale Einkaufsliste wird als csv-Datei um eine weitere Verarbeitung bzw. Auswertung bereitgestellt. Die Zahlen sind der Einkaufsablauf während die mit einem Semikolon getrennte Produktlisten die Soll-Listen an den entsprechenden Einkaufstage sind.
+* **Erstellung vom Verbrauchsablauf** Auf Basis der vordefinierten Personadaten wird ein Verbrauchs- sowie Einkaufsablauf erzeugt, aus welchem sich eine ideale Einkaufsliste \(Soll-Liste\) für die Persona ableiten lässt. Diese ideale Einkaufsliste wird als csv-Datei für die weitere Verarbeitung bzw. Auswertung abgelegt. Im folgenden Codeblock wird die ideale Liste dargestellt. Dabei entspricht die erste Spalte Zahlen dem Einkaufsablauf und die darauf folgende Liste den benötigten Produkten zum Zeitpunkt dieses Einkaufs.
 
+{% code-tabs %}
+{% code-tabs-item title="soll-einkaufslliste.csv" %}
 ```text
 ---------------------------
 -----Soll-Einkaufsliste-----
@@ -90,37 +91,94 @@ public void setSportlerProduktMap() {
 25;Milch;Salami;
 28;Kaese;
 32;Milch;Salami;
-38;Butter;Milch;Kaese;Salami;
-42;Milch;Joghurt;
-47;Milch;Kaese;Salami;
-54;Milch;Salami;
-57;Butter;Milch;Kaese;
-60;Salami;
-64;Milch;Kaese;
-68;Salami;Joghurt;
-73;Milch;Kaese;Salami;
-78;Butter;Milch;Salami;
-82;Milch;Kaese;
-85;Salami;
-90;Milch;Kaese;
-93;Milch;Salami;Joghurt;
-97;Milch;
-101;Butter;Milch;Kaese;Salami;
-109;Milch;Salami;
-113;Milch;Kaese;
-117;Salami;Joghurt;
-120;Butter;Milch;
-124;Milch;Kaese;Salami;
-128;Milch;
-131;Salami;
-135;Milch;Kaese;
-139;Butter;Salami;
-144;Milch;Kaese;Joghurt;
-149;Milch;Salami;
+...
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-* Abbildung der Smart Integration Matrix: die Matrix-Werte werden  dem Simulator als Parameter übergeben.
-* Simulation: die Simulation erfolgt, indem die Methode "simuliereAblauf\(\)" aufgerufen wird. Diese Methode bildet den Simulator ab und nimmt  neben den Matrix-Werten eine bestimmte Persona, ihre ideale Liste und den Zeitraum über den die Simulation ablaufen darf als Parameter. 
+* **Abbildung der Smart Integration Matrix** Die festgelegten Matrix-Werte werden dem Simulator als Parameter übergeben 
+* **Simulation** Die Simulation erfolgt, indem die Methode _simuliereAblauf\(\)_ aufgerufen wird. Diese Methode bildet den Simulator ab und nimmt  neben den Matrix-Werten eine bestimmte Persona, ihre ideale Liste und den Zeitraum über den die Simulation ablaufen darf als Parameter.
+
+```text
+public void simuliereAblauf(Persona persona, Map<Integer, \
+	List<Produkt>> sollEinkaufsListenMap, int zeitRaum, boolean appTouchPoint,
+	boolean homeTouchPoint, int Qapp, int Qhome, String matrixCombinationDateiName) throws ParseException {
+	
+	Map<Integer, List<String>> istEinkaufsListeMap = new HashMap<>();
+	List<Integer> sollEinkaufsListenMapKeys = sollService.sortiereSollMapKey(sollEinkaufsListenMap);
+	
+	for(int i=1; i<=zeitRaum; i++) {
+		// Sollliste für Tag i erstellen
+		List<Produkt> sollListeTagI= sollService.erstelleSollEinkaufsListe(persona, i);
+		
+		// hole generierte Einkaufsliste (von der App)
+		einkaufslistenGenerator.get_berechneteEinkaufsliste(1, i);
+		
+		// setze ggf. verbrauchte Produkte auf die istEinkaufsliste
+		List<String> istEinkaufsliste = istService.get_einkaufsliste(1);
+		
+		double pApp = 0.0;
+		switch (Qapp) {
+		case 1:
+			pApp=0.33;
+			break;	
+		case 2:
+			pApp=0.66;
+			break;
+		case 3:
+			pApp=0.99;
+			break;
+		default:
+			appTouchPoint=false;
+			break;
+		}
+		
+		double pHome = 0.0;
+		switch (Qhome) {
+		case 1:
+			pHome=0.33;
+			break;
+		case 2:
+			pHome=0.66;
+			break;
+		case 3:
+			pHome=0.99;
+			break;
+		default:
+			homeTouchPoint=false;
+			break;
+		}
+		
+		for(Produkt produkt : sollListeTagI) {
+			if(einkaufslistenGenerator.itemAlreadyExist(istEinkaufsliste, produkt.getName())==false) {
+				if (appTouchPoint && Math.random() <= pApp) {
+					istService.put_Product_On_Einkaufsliste(1, produkt.getName(), i);
+					istEinkaufsliste = istService.get_einkaufsliste(1);
+				}
+			}if(einkaufslistenGenerator.itemAlreadyExist(istEinkaufsliste, produkt.getName())==false) {
+			
+				if (homeTouchPoint && Math.random() <= pHome) {
+					istService.put_Product_On_Einkaufsliste(1, produkt.getName(), i);
+					istEinkaufsliste = istService.get_einkaufsliste(1);
+				}
+			}
+		}
+		istEinkaufsliste = istService.get_einkaufsliste(1);
+		
+		// Überprüfen, ob Tag i Einkaufstag ist
+		if(sollEinkaufsListenMapKeys.contains(i)) {
+			istEinkaufsListeMap.put(i, istEinkaufsliste);
+			
+			for(String produktName : istEinkaufsliste) {
+				istService.buy_Product_From_Einkaufsliste(produktName, 1, i);
+				istEinkaufsliste = istService.get_einkaufsliste(1);
+			}
+		}
+		
+	}
+	einkaufslistenGenerator.schreibeGenerierteEinkaufslistenInEinerDatei(istEinkaufsListeMap, matrixCombinationDateiName);
+}
+```
 
 ## Simulationsergebnisse
 
