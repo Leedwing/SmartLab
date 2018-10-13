@@ -18,6 +18,11 @@
 * Erzeugung und Anzeige eines QR-Codes, welcher den Benutzernamen / Anmeldename enthält. \(Für die Registrierung an der Kasse\)
 * Anzeige und Bearbeitung der Daten sind Benutzer- bzw. Kundenspezifisch
 
+{% hint style="info" %}
+Unter **Warenkorb** versteht man in dieser Dokumentation die Sammlung der Produkte, die der Kunde in der Vergangenheit bereits mindestens einmal erworben hat.  
+Dies entspricht i.d.R. einer Liste der Produkte, die ein bestimmter Kunde regelmäßig benötigt.
+{% endhint %}
+
 **Startmaske**
 
 ![Abbildung 3.1: Startmaske](.gitbook/assets/1.png)
@@ -136,21 +141,19 @@ catch (WriterException e)
 * Aufnahme des Verbrauchsdatum beim Hinzufügen eines Produktes auf die Einkaufliste
 * Aufnahme „Verbrauch in Tagen“ eines Produktes und hinzufügen in die Verbrauchsstatistik     
 
-Die Alexa Skill Entwicklung lässt sich in zwei Schichten unterteilen. Einmal das Frontend \(Interaction Model\) und auf der anderen Seite das Backend \(Hosted Service\). Die beiden Schichten werden durch den Alexa Voice Service miteinander verbunden.
+Die Alexa Skill Entwicklung lässt sich in zwei Schichten unterteilen. Einmal das Frontend \(_Interaction Model_\) und auf der anderen Seite das Backend \(_Hosted Service_\). Die beiden Schichten werden durch den _Alexa Voice Service_ miteinander verbunden.
 
-Das Interaction Model beschreibt die Kommunikation zwischen dem User und dem Alexa Voice Service. Die Kommunikation muss immer einem bestimmten Schema entsprechen. Kleinere Abweichungen vom definierten Schema können toleriert werden.
+Das Interaction Model beschreibt die Kommunikation zwischen dem User und dem _Alexa Voice Service_. Die Kommunikation muss immer einem bestimmten Schema entsprechen. Kleinere Abweichungen vom definierten Schema können toleriert werden.
 
-Unter dem Hosted Service versteht man das Backend. Hier wird der Funktionscode in der serverseitigen Plattform „Node.js“ mit der Programmiersprache „JavaScript“ geschrieben. Der Code wird in der Cloud ausgeführt, wenn Alexa mittels Spracheingabe aufgerufen wird.
+Unter dem _Hosted Service_ versteht man das Backend. Hier wird der Funktionscode in der serverseitigen Plattform „Node.js“ mit der Programmiersprache „JavaScript“ geschrieben. Dieser Code wird in der Cloud ausgeführt, sobald der Alexa-Skill mittels Spracheingabe aufgerufen wird.
 
 **Entwicklung des Amazon Alexa Skills mit JavaScript über AWS Lamda**
 
-Im Code sind mehrere sogenannte Intents hinterlegt, welche per passendem Sprachbefehl aufgerufen werden können. Intents sind vergleichbar mit Methoden die bspw. durch ein Button Klick ausgeführt werden. Beim Aufruf können auch bestimmte Informationen \(in diesem Fall Produkte\) per Variable übergeben werden.  Die Intents und Variablen müssen im Amazon Developer Tool definiert werden. Die Intelligenz wird dann im Programmcode, im AWS Lamda Tool, ausprogrammiert.
+Im Code sind mehrere sogenannte _Intents_ hinterlegt, welche per passendem Sprachbefehl aufgerufen werden können. _Intents_ sind vergleichbar mit Methoden die bspw. durch ein Button-Klick ausgeführt werden. Beim Aufruf können auch bestimmte Informationen \(in diesem Fall Produkte\) per Variable übergeben werden.  Die _Intents_ und Variablen müssen im Amazon Developer Tool definiert werden. Die Intelligenz wird dann im Programmcode, im AWS Lamda Tool, ausprogrammiert.
 
-![](.gitbook/assets/unbenannt4.PNG)
+![Abbildung 3.6: Ansicht , Intentdefiniton &#xFC;ber das Amazon Developer Tool](.gitbook/assets/unbenannt4.PNG)
 
-Abbildung 3.6: Ansicht , Intentdefiniton über das Amazon Developer Tool
-
-In Abbildung 3.6 ist zu sehen wie ein Intent definiert wird, in diesem Beispiel der AddIntent. Man erzeugt ihn über das Amazon Developer Tool und bezeichnet ihn sinngerecht. Zusätzlich werden noch Utterances und Slot Types \(Variablen\) definiert. Sie werden benötigt um den Intent auszuführen.
+In _Abbildung 3.6_ ist zu sehen wie ein Intent definiert wird, in diesem Beispiel der _AddIntent_. Man erzeugt ihn über das Amazon Developer Tool und bezeichnet ihn sinngerecht. Zusätzlich werden noch Utterances und Slot Types \(Variablen\) definiert. Diese werden benötigt um den Intent ausführen zu können.
 
 Die Intelligenz des AddIntent wird dann in der Lamda Management Console ausprogrammiert.
 
@@ -174,9 +177,7 @@ Die Intelligenz des AddIntent wird dann in der Lamda Management Console ausprogr
     }
 ```
 
-Abbildung 3.7: AddIntent
-
-In der Abbildung 3.7 ist zu sehen wie der AddIntent ausprogrammiert wird. Es wird der Modus gesetzt und definiert was Alexa zum Client sagen soll, wenn der AddIntent ausgeführt wird. Abhängig von der Antwort reagiert Alexa.
+Im o.a. Codeblock ist zu sehen wie der AddIntent ausprogrammiert wird. Es wird der Modus gesetzt und definiert was Alexa zum Client sagen soll, wenn der AddIntent ausgeführt wird. Abhängig von der Antwort reagiert Alexa.
 
 **Notwendige Intents um die Anforderungen an den Skill zu erfüllen:**
 
@@ -189,11 +190,11 @@ In der Abbildung 3.7 ist zu sehen wie der AddIntent ausprogrammiert wird. Es wir
 
 Der Aufruf eines Intent wird weiterverarbeitet, indem eine dynamische URL erzeugt wird, die per GET-Request aufgerufen wird. Als command wird das jeweils zum Befehl gehörende Kommando ausgewählt, als Parameter **product** wird das genannte Produkt verwendet, welches von Alexa per Spracherkennung eingesetzt wird. Die Bestätigung erfolgt jeweils per **Ja** oder **Nein.**
 
-Nach dem GET-Request wartet der Intent auf Antwort vom Webserver und kann diese weiter verarbeiten. In der Regel wird ein Teil der Antwort ausgelesen, bzw. bei Erfolgsmeldung eine Bestätigung der Aktion ausgegeben.
+Nach dem GET-Request wartet der Intent auf Antwort vom Webserver und kann diese weiterverarbeiten. In der Regel wird ein Teil der Antwort ausgelesen, bzw. bei Erfolgsmeldung eine Bestätigung der Aktion ausgegeben.
 
 **Entwicklung des Backends**
 
-Aufrufe am Apache Webserver werden per GET-Request durchgeführt, welcher drei Parameter über die URL empfängt:
+Aufrufe am Apache Webserver werden per GET-Request durchgeführt, welcher drei Parameter \(in URL integriert\) enthält:
 
 * user
 * command
@@ -201,22 +202,22 @@ Aufrufe am Apache Webserver werden per GET-Request durchgeführt, welcher drei P
 
 Ein beispielhafter Request sieht wie folgt aus: [http://xxxx/einkaufslistengenerator.php?user=fabio&command=add&product=salami](http://xxxx/einkaufslistengenerator.php?user=fabio&command=add&product=salami)​
 
-Bei Aufruf dieser URL würde mit dem User "fabio" das Produkt "salami" zum Warenkorb hinzugefügt werden. Folgende Commands werden vom Webserver erkannt:
+Bei Aufruf dieser URL würde mit dem User "Fabio" das Produkt "Salami" zum Warenkorb hinzugefügt werden. Folgende Commands werden vom Webserver erkannt:
 
-* **add -** Fügt ein neues Product der Liste hinzu.
-* **remove** - Entfernt ein Produkt von der Liste
-* **list** - gibt die vollständige Liste aus
-* **reset** - leert die Liste vollständig.
+| Befehl | Funktion |
+| :--- | :--- |
+| **add**  | Fügt ein neues Product der Liste hinzu. |
+| **remove** | Entfernt ein Produkt von der Liste |
+| **list** | Gibt den Inhalt der Liste aus |
+| **reset** | Leert die Liste vollständig |
 
-Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe Abbildung 3.8\). Die Anfrage wird erst abgeschlossen, wenn der Webserver eine response verschickt. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet, im Falle von **list** besteht die Response aus einer Liste aller Produktbezeichnungen.
+Beim Aufruf der URL wartet Alexa auf einen Callback vom Server \(siehe folgender Codeblock\). Die Anfrage wird erst abgeschlossen, sobald der Webserver eine Response verschickt hat. Im Falle der Aktionen **add, remove** und **reset** wird lediglich nach Abschluss der serverseitigen Verarbeitung eine Erfolgsmeldung versendet. Im Falle von **list** besteht die Response bspw. aus einer Liste aller Produktbezeichnungen.
 
 ```text
 function getResult(user, url, callback) {
-    //   ---------
+    // Initialisierung
     var result = "";
-    //var path = 'var/wwww/html/einkaufslistengenerator.php?user=' + user;
     var path = '/einkaufslistengenerator.php?user=' + user;
-    //var path = '/einkaufslistengenerator.php?';
     
     if (url) {
         path += url;
@@ -228,7 +229,7 @@ function getResult(user, url, callback) {
         method: 'GET'
     };
     
-    
+    // Durchführung HTTP-Request
      HTTP.get(options, response => {
         response.setEncoding('utf8');
         var responseString = '';
@@ -249,56 +250,45 @@ function getResult(user, url, callback) {
 }
 ```
 
-Abbildung 3.8: Response und Callback Defintion
-
 ## Smart Shop Integration via smartem Kassensystem
 
 **Betriebssystem:** Android
 
 **Anforderung an das Kassensystem:**
 
-* Möglichkeit für Kundenanmeldung via QR-Code
+* Möglichkeit einer Kundenanmeldung via QR-Code
 * Anzeige aller Produkte
-* Anzeige aller Produkte die abgescannt oder ausgewählt wurden, in listenform
+* Anzeige aller bereits erfassten/gescannten Produkte
 * Möglichkeit Produkte via Barcode abzuscannen
-* Nach dem Bezahlvorgang , sollen alle ausgewählten Produkte vom Einkaufzettel gestrichen werden, Produkte die noch nicht im Warenkorb eingetragen sind , sollen eingetragen werden und das Kaufdatum der Produkte soll aufgenommen werden  
+* Nach dem Bezahlvorgang sollen alle ausgewählten Produkte vom Einkaufzettel gestrichen werden, Produkte die noch nicht im Warenkorb eingetragen sind sollen eingetragen werden und das Kaufdatum der Produkte soll dabei ebenfalls aufgenommen werden  
 
 **Startmaske**
 
-![](.gitbook/assets/6.PNG)
+![Abbildung 3.7: Startmaske Kassensystem](.gitbook/assets/6.PNG)
 
-Abbildung 3.9: Startmaske Kassensystem
+In _Abbildung 3.7_ ist die Startmaske des smarten Kassensystems zu sehen. Wie zu erkennen ist, hat die App zwei verschiedene Betriebsmodi. Zum einen gibt es die Möglichkeit die Kasse direkt zu öffnen ohne Authentifikation des Kunden. Der andere Modus bietet die Möglichkeit, dass sich der Kunde vor der Erfassung der Artikel zuerst am Kassensystem authentifiziert.
 
-In Abbildung 3.9 ist die Startmaske des Smarten Kassensystems zu sehen. Wie man sieht gibt es zwei Modi. Einmal die Möglichkeit die Kasse direkt zu öffnen ohne Anmeldung des Kunden und die andere Möglichkeit ist es den Kunden sich anmelden zu lassen bevor die Kasse angezeigt wird.
-
-* **KUNDEN LOGIN Button:** Eine neue Maske öffnet sich und es besteht die Möglichkeit den Kunden via QR-Code, sich anmelden zu lassen. Bevor die Kassenmaske anzeigt wird, wird eine Verbindung zu einer MySQL Datenbank aufgebaut. Es werden alle kundenspezifischen Daten geladen \(Warenkorb\) und alle relevanten Produktdaten
-* Dies kann in der Doku nicht veranschaulicht werden, da die Abbildungen von einem Android Emulator stammen. Mit diesem ist es nicht möglich ein Kamerabild zu zeigen, somit auch kein QR-Code oder Barcode Scann möglich, da diese über die Kamera gemacht wird
-* **KASSE Button:** Die Kassenmaske wird geöffnet. Es wird eine Verbindung zu einer MySQL Datenbank aufgebaut und alle relevanten Produktdaten geladen.
+* **Button 'KUNDEN LOGIN':** Eine neue Maske öffnet sich welche den Kunden die Möglichkeit bietet sich via QR-Code am System anzumelden. Bevor die Kassenmaske anzeigt wird, wird eine Verbindung zu einer MySQL-Datenbank aufgebaut. Dabei werden alle kundenspezifischen Daten \(Warenkorb\) und die für den Kunden relevanten Produktdaten geladen \(Diese Funktion wurde in der Dokumentation nicht veranschaulicht, da die Anwendung im Rahmen des Projekts ausschließlich im Android Emulator ausgeführt wurde\)
+* **Button 'KASSE':** Die Kassenmaske wird geöffnet. Anschließend wird eine Verbindung zu einer MySQL-Datenbank aufgebaut und dabei alle relevanten Produktdaten geladen.
 
 **Kasse**
 
-![](.gitbook/assets/unbenannt1.PNG)
+![Abbildung 3.8: &#xDC;bersicht des Kassensystems](.gitbook/assets/unbenannt1.PNG)
 
-Abbildung 3.10: Kassenmaske
+In _Abbildung 3.8_ ist die Kassenmaske zu sehen, welche in 2 Fragmente aufgeteilt ist.
 
-In Abbildung 3.10 ist die Kassenmaske zu sehen. Die Maske ist in 2 Fragmente aufgeteilt.
+In _Fragment 1_ werden die ausgewählten Produkte aufgelistet. Dabei werden sie entweder durch den Barcode Scan, oder durch Klicken auf einer der vorhandenen Buttons aus _Fragment 2_, auf die Liste gesetzt.
 
-In **Fragment 1** werden die ausgewählten Produkte aufgelistet. Sie werden entweder durch den Barcode Scan oder durch klicken eines Buttons aus Fragment 2, auf die Liste gesetzt.
+* **Button 'DELETE':** Falls ein Produkt fälschlicherweise auf die Liste gesetzt wird, kann durch Markieren des Produktes mittels des RadioButtons und Betätigen des DELETE Buttons, ein Produkt wieder aus der Liste entfernt werden
+*  Button '**BEZAHLEN':** Die Funktion des Bezahl Buttons ist davon abhängig ob ein Kunde angemeldet ist oder nicht. Ist kein Kunde angemeldet, wird nur die Produktliste geleert, der Bezahlvorgang abgeschlossen und die Startmaske anzeigt. Ist ein Kunde angemeldet werden im Hintergrund zusätzliche Aktionen durchgeführt. Das Kassensystem baut eine Verbindung zu einer MySQL-Datenbank auf, um Produkte die sich auf der Liste befinden zu streichen, da diese somit als „eingekauft“ gelten. Gleichzeitig wird das Kaufdatum der jeweiligen Produkte in der Historie eingetragen. Zusätzlich werden Produkte die auf der Produktliste sind, sich jedoch nicht im Warenkorb des Kunden befinden, seinem Warenkorb automatisch hinzugefügt.
 
-* **DELETE BUTTON:** Wenn ein Produkt ausversehen auf die Liste gesetzt wird, kann durch markieren des Produktes mittels des RadioButtons und betätigen des DELETE Buttons, ein Produkt aus der Liste entfernt werden
-*  **BEZAHLEN BUTTON:** Die Funktion des Bezahl Buttons ist davon abhängig ob ein Kunde angemeldet ist oder nicht. Wenn kein Kunde angemeldet ist, dann wird nur die Produktliste geleert, der Bezahlvorgang abgeschlossen und die Startmaske anzeigt. Wenn ein Kunde angemeldet ist passiert einiges mehr im Hintergrund. Das Kassensystem baut eine Verbindung zu einer MySQL Datenbank auf, um die Produkte die auf der Liste sind von der Einkaufsliste des Kunden zu streichen, da diese dann als „eingekauft“ gelten. Gleichzeitig wird das Kaufdatum der jeweiligen Produkte in der Historie eingetragen. Zusätzlich werden Produkte die auf der Produktliste sind, jedoch nicht im Warenkorb des Kunden, seinem Warenkorb automatisch hinzugefügt.
+![Abbildung 3.9: Kassensystemfunktion - Automatisches Einf&#xFC;gen von Produkten in Warenkorb](.gitbook/assets/unbenannt2.PNG)
 
-![](.gitbook/assets/unbenannt2.PNG)
+**Fragment 2** ist nochmals in zwei Segmente aufgeteilt. Jedes Segment entspricht dabei einer Möglichkeit ein Produkt auf die Produktliste zu setzen. Zum Einen durch Klicken des Buttons **SCAN,** der einen Barcodescanner öffnet, und somit die Möglichkeit bietet ein Produkt via Barcode zu erfassen und zum Anderen ist es durch ein Button-klick möglich. Für jedes Produkt aus dem Sortiment wird dynamisch, bei der Erzeugung der Oberfläche, ein Button generiert. Wird ein Produkt ausgewählt, sei es vom Barcodescanner oder durch den entsprechenden Button, wird dieser entschärft, sodass Produkte nicht doppelt auf die Liste gesetzt werden können.
 
-Abbildung 3.11: Automatisch Produkt in Warenkorb einfügen
+Die dynamisch erzeugten Buttons werden in zwei verschiedenen Farben dargestellt, wie in _Abbildung 3.9_ zu sehen ist. Die grün dargestellten Buttons zeigen dabei an, wenn ein Kunde angemeldet ist, dass sich diese Produkte bereits im Warenkorb des Kunden befinden. Die gelb markierten Buttons zeigen dabei an, wenn ein Kunde angemeldet ist, dass diese Produkte nicht im Warenkorb eingetragen sind. Ist kein Kunde angemeldet, sind folglich alle Buttons gelb. \(siehe _Abbildung 3.10_\)
 
-Zum genaueren Verständnis, der Warenkorb beinhaltet die Produkte die der Kunde im Laufe der Zeit mindestens 1-mal eingekauft hat bzw. Produkte die der Kunde generell einkauft.
+![Abbildung 3.10: Kassensystem nach Kundenanmeldung](.gitbook/assets/8.PNG)
 
-**Fragment 2**  ist nochmal in zwei Segmente aufgeteilt. Jedes Segment ist eine Möglichkeit ein Produkt auf die Produktliste zu setzen. Zum einen ist es möglich durch klicken des Buttons **SCAN,** der einen Barcode Scanner öffnet, ein Produkt via Barcode auf die Liste zu setzen und zum anderen ist es möglich durch ein Button klick. Für jedes Produkt aus der Datenbank wird dynamisch, bei der Erzeugung der Oberfläche, ein Button generiert. Wird ein Produkt ausgewählt, sei es vom Barcode Scanner oder durch den Button, wird der Button entschärft, sodass Produkte nicht doppelt auf die Liste gesetzt werden \(siehe Abbildung 7, Käse, Joghurt und Milch\).
 
-Die dynamisch erzeugten Buttons werden mit zwei verschiedenen Farben markiert, wie in Abbildung 3.11 zu sehen. Die grün markierten Buttons bedeuten ein Kunde ist angemeldet und das diese Produkte sich im Warenkorb des Kunden befinden. Die gelb markierten Buttons bedeuten, wenn ein Kunde angemeldet ist, dass diese Produkte nicht im Warenkorb eingetragen sind. Wenn kein Kunde angemeldet ist, sind logischerweise alle Buttons gelb. \(siehe Abbildung 3.12\)
-
-![](.gitbook/assets/8.PNG)
-
-Abbildung 3.12: Ansicht des Kassensystems, wenn kein Kunde angemeldet ist
 
