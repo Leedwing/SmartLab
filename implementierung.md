@@ -67,9 +67,9 @@ Die App beinhaltet jedoch die Funktion, dass wenn ein Produkt im roten Bereich l
 
 Der Warenkorb kann natürlich auch manuell bedient werden, indem eines der Produkte über den RadioButton markiert wird und einer der folgenden drei Buttons betätigt wird, wie in _Abbildung 3.3_ zu sehen:
 
-* **DELETE BUTTON:** Produkt wird aus dem Warenkorb entfernt
-* **NEW BUTTON:** Ein neues Produkt kann im Warenkorb aufgenommen werden
-* **ADD BUTTON:** Produkt wird in die Einkaufsliste gesetzt, als Verbrauchsdatum aufgenommen und in der Historie eingetragen. Zusätzlich wird noch ein Eintrag in die Verbrauchsstatistik durchgeführt, d.h. die Zeitspanne vom letzten Kaufdatum des Produktes, bis zum aufgenommen Verbrauchsdatum wird erfasst.
+* **Button 'DELETE':** Produkt wird aus dem Warenkorb entfernt
+* **Button 'NEW':** Ein neues Produkt kann im Warenkorb aufgenommen werden
+* **Button 'ADD':** Produkt wird in die Einkaufsliste gesetzt, als Verbrauchsdatum aufgenommen und in der Historie eingetragen. Zusätzlich wird noch ein Eintrag in die Verbrauchsstatistik durchgeführt, d.h. die Zeitspanne vom letzten Kaufdatum des Produktes, bis zum aufgenommen Verbrauchsdatum wird erfasst.
 * _**Diese Funktionen werden unabhängig vom verwendeten Kanal zur Erfassung \(wie z.B. Amazon Alexa\), ebenfalls ausgeführt.**_ 
 
 **Einkaufsliste**
@@ -81,8 +81,8 @@ Wie in _Abbildung 3.3_ sehr gut zu sehen ist, werden Produkte, die rot markiert 
 Die Einkaufliste kann auch, wie der Warenkorb, manuell bedient werden. Durch markieren eines Produktes, durch den RadioButton, kann das Produkt entweder von der Liste gelöscht oder abgehakt werden.   
 Diese Funktionen sind durch die beiden Buttons „DELETE“ und „CHECK“ realisiert:
 
-* **DELETE BUTTON:** Markiertes Produkt wird aus der Liste gelöscht, bspw. Weil das Produkt ausversehen auf die Einkaufsliste gesetzt wurde.
-* **CHECK BUTTON:** Das Markierte Produkt wird aus der Liste entfernt und als „Eingekauft“ deklariert, das bedeutet es wird zusätzlich das Kaufdatum aufgenommen und für das ausgewählt Produkt in der Historie aufgenommen
+* **Button 'DELETE':** Markiertes Produkt wird aus der Liste gelöscht, bspw. Weil das Produkt ausversehen auf die Einkaufsliste gesetzt wurde.
+* **Button 'CHECK':** Das Markierte Produkt wird aus der Liste entfernt und als „Eingekauft“ deklariert, das bedeutet es wird zusätzlich das Kaufdatum aufgenommen und für das ausgewählt Produkt in der Historie aufgenommen
 * _**Diese Funktion wird vom Smarten Kassensystem beim Zahlvorgang automatisch übernommen. \(Smart Shop\)**_
 
 **Kauf- und Verbrauchshistorie**
