@@ -115,97 +115,62 @@ Im Folgenden werden die für eine Implementierung auftretenden Fragen beantworte
 
 ### Wie wird die Wahrscheinlichkeit ob ein Produkt benötigt wird basierend auf Verbrauchs- und Haltbarkeitsdaten bestimmt?
 
-Um eine automatisierte Verwaltung der Einkaufsliste zu ermöglichen, muss die Wahrscheinlichkeit bestimmt werden können, ob ein bestimmtes Produkt bereits verbraucht ist oder nicht. Dies kann auf verschiedenste Art und weise realisiert werden. 
+Um eine automatisierte Verwaltung der Einkaufsliste zu ermöglichen, muss die Wahrscheinlichkeit bestimmt werden können, ob ein bestimmtes Produkt bereits verbraucht ist oder nicht. Dies kann auf verschiedenste Art und weise realisiert werden. Da wir diese Problematik mit dem Hintergrund der Realisierung einer Einkaufslisten Applikation untersuchen, kann das Szenario wie in _Abbildung 2.3_ dargestellt werden.
 
-Abbildung XY 
+![Abbildung 2.3: Ablauf&#xFC;bersicht](.gitbook/assets/uebersicht_rq1.PNG)
 
-![Abbildung](.gitbook/assets/image%20%286%29.png)
+* **Smart Home**: Erfassung von Verbrauchsdaten über Smart Home Geräte \(Bspw. Alexa\).
+* **Smart Shop**: Erfassung von Ablaufdaten von Produkten / Produktgruppen und Lieferung von Einkaufsdaten eines Verbrauchers über Smart-Shop-Geräte.
+* **Einkaufslisten Applikation**: Zusammenführung von Ablauf- und Verbrauchsdaten mit dem Einkauf und Bestimmung der Wahrscheinlichkeiten der Produktnachfrage und Verwendung von Wahrscheinlichkeiten zum automatischen Füllen der Einkaufsliste nach definierten Regeln.
 
-* Smart Home: Erfassung von Verbrauchsdaten über Smart Home Geräte \(Alexa\).
-* Smart Shop: Erfassung von Ablaufdaten von Produkten / Produktgruppen und Lieferung von Einkaufsdaten eines Verbrauchers über Smart-Shop-Geräte.
-* Einkaufsliste Applikation: Zusammenführung von Ablauf- und Verbrauchsdaten mit dem Einkauf und Bestimmung der Wahrscheinlichkeiten der Produktnachfrage und Verwendung von Wahrscheinlichkeiten zum automatischen Füllen der Einkaufsliste nach definierten Regeln.
+Die Grundidee besteht darin, mithilfe der gesammelten Daten eine Wahrscheinlichkeitsfunktion \(Dichtefunktion\) zu erstellen. Es gibt jedoch verschiedene Möglichkeiten, eine geeignete Wahrscheinlichkeitsfunktion zu bestimmen. Die Auswahl einer geeigneten Wahrscheinlichkeitsfunktion hängt von der Streuung bzw. Verteilung der Daten ab. 
 
-#### Methods:
+Die einfachste Möglichkeit besteht darin, die Wahrscheinlichkeitsfunktion zu erstellen, indem die **relative Häufigkeit** der Daten verwendet wird. Sind nur wenige Daten verfügbar, kann die Wahrscheinlichkeitsfunktion sehr ungenau sein. Das heisst umso weniger Daten verfügbar sind, desto ungenauer wird die Prognose. Um eine bessere Prognose zu erstellen, wenn wenige Daten vorliegen, kann eine **Approximationsfunktion** zur Erreichung genauerer Ergebnisse verwendet werden. Diese könnten zum Beispiel sein:
 
-Die dargestellten Wahrscheinlichkeitsfunktionen sind nur ein kleiner Teil aller vorhandenen Funktionen.
+* Uniformerteilung
+* Normalverteilung
+* Logarithmische Normalverteilung
+* Dreiecksverteilung
+* ...
 
-![](.gitbook/assets/image%20%288%29.png)
-
-  
-Um zu überprüfen, ob eine allgemeine Wahrscheinlichkeitsfunktion \(Dichte\) der gegebenen Datenverteilung ähnlich ist, gibt es verschiedene Möglichkeiten.Diese können z.B. sein:
+Die erwähnten Approximationsfunktionen sind nur ein kleiner Teil aller existierenden Wahrscheinlichkeitsfunktionen. Deren Verwendung ist allerdings nur dann sinnvoll, wenn die vorliegenden Datenverteilung mit einer gewählten Approximationsfunktion korreliert. Andernfalls könnten die Ergebnisse stark gefälscht werden.  
+Um zu überprüfen, ob eine Approximationsfunktion der gegebenen Datenverteilung ähnlich ist, gibt es verschiedene Möglichkeiten. Diese können z.B. sein:
 
 * Optische Prüfung \(Vergleich beider Funktionen optisch\)
 * Kolmogorow-Smirnow-Test
 * Anderson-Darling-Test
 * Chi-Quadrat-Test
 
-#### Beispiel: Normalwahrscheinlichkeitsverteilung:
+Zusammenfassend ergeben sich somit zwei alternative Vorgehensweisen, wie in _Abbildung 2.4_ dargestellt.
 
-Angenommen, wir haben festgestellt, dass unsere Daten \(fast\) normalverteilt sind. Nun können wir die entsprechende Wahrscheinlichkeitsdichtefunktion für unsere Daten berechnen.
+![Abbildung 2.4: Vorgehensweise zur Wahrscheinlichkeitsbestimmung](.gitbook/assets/wahrscheinlichkeitsbestimmung.PNG)
 
-* Wahrscheinlichkeitsdichtefunktion f \(einer Variablen x\) \[Normalverteilung\]:
+In unserer Anwendung haben wir die Wahrscheinlichkeitsverteilung anhand der relative Häufigkeit der vorliegenden Daten erzeugt. Diese Entscheidung wurde gefällt, da die uns vorliegenden Daten nicht mit einer der allgemeinen Wahrscheinlicheitsfunktionen  korrelierten.
 
-![](.gitbook/assets/image%20%281%29.png)
+### Wie kann Smart Shop die Qualität der Einkaufslisten Applikation verbessern?
 
-* Erwarteter Wert E \(einer Variablen X\):
+Durch die Integration von Smart Shop, kann eine Vielzahl an zusätzliche Services für die Einkaufslisten Applikation ergänzend sein. Grundlage dafür wäre eine vorhandene Infrastruktur auf Smart Shop Seite, die dank einer Schnittstelle zu der Applikation eine Kommunikation ermöglicht. Folgende Aspekte können betrachtet werden:
 
-![](.gitbook/assets/image%20%289%29.png)
+* **Kundenverbrauchsdaten-Service**  
+  Nutzt ein User die Einkaufslisten Applikation, kann der im Shop an der Kasse sich über die Applikation sich identifizieren lassen. Dies kann durch ein smartes Kassensystem ermöglicht werden. So kann das Datum der gekauften Produkte \(aus der Einkaufsliste\) vom Shop erfasst werden. Zusätzlich dazu kann der Shop darüber wissen, falls der User ein Produkt gekauft hat, das nicht auf  der liste stand, wie der Warenkorb des Users genau aussieht. Beide Informationen nämlich Kaufdatum und aktueller Warenkorb des Users können der Einkaufslisten Applikation bereitgestellt werden.  
+  Ein intelligentes Kassensystem könnte folgende Anforderungen erfüllen:
 
-* Abweichung σ² und Standardabweichung σ \(einer Variablen X\):
 
-![](.gitbook/assets/image%20%287%29.png)
 
-#### Kumulative Wahrscheinlichkeitsverteilungsfunktion:
+  * Möglichkeit für Kundenanmeldung via QR-Code
+  * Anzeige des Kundenwarenkorbs
+  * Anzeige aller Produkte die abgescannt oder ausgewählt wurden
+  * Möglichkeit Produkte via Barcode abzuscannen
+  * Nach dem Bezahlvorgang :
 
-Nachdem wir eine Wahrscheinlichkeitsfunktion \(Dichte\) aufgebaut haben, müssen wir die Funktion in eine kumulative Wahrscheinlichkeitsfunktion umwandeln. Mit dieser Funktion kann dann bestimmt werden, bis wann ein Produkt wieder gekauft werden muss. Dies kann mit Hilfe der folgenden Formel erfolgen: kumulative Wahrscheinlichkeitsverteilungsfunktion P\(X ≤ x\):
+    * Sollen alle ausgewählten Produkte von der  Einkaufsliste gestrichen werden
+    * Das Kaufdatum der Produkte soll aufgenommen werden
 
-![](.gitbook/assets/image%20%282%29.png)
+* **Angebotsbenachrichtigungen** Basierend auf dem Kaufsverhalten oder/und der Einkaufsliste eines Users können personalisierte Angebotsbenachrichtungen über die Applikation angezeigt werden. ****
+* **Kundenprofile** Um dem User bei der erstmaligen Verwendung der Einkaufslisten Applikation schnell und effizient zu unterstützen, könnten vom Shop vordefinierte Kundenprofile angeboten werden, die das Kundenverhalten angenähert abbildet. Somit kann bei nicht vorhanden Statiskiten des Kundenverhaltens trotzdem eine  Einkaufsliste erstellt werden. Korreliert ein vordefiniertes Profil nicht hundertprozentig mit dem Kundenprofil kann der Kunde dieses Profil selber ergänzen, indem der bspw. Produkte seinem Warenkorb hinzufügt, die zuvor nicht vorhanden war. 
+* Einkaufslisten-basierte Navigation
 
-Ablaufdaten als Datenbasis:
 
-In diesem Fall hängt die Wahrscheinlichkeit, dass ein Produkt gekauft werden muss, nur von den Ablaufdaten des Produkts ab. Basierend auf einem Satz von Ablaufdaten eines Produkts ist es möglich, zu bestimmen, mit welcher Wahrscheinlichkeit ein Produkt zu einem bestimmten Zeitpunkt abläuft, indem die Wahrscheinlichkeitsfunktion \(Dichte\) oder die kumulative Wahrscheinlichkeitsfunktion aufgebaut wird. Das heißt, je mehr Daten verfügbar sind, desto genauer kann die Wahrscheinlichkeit bestimmt werden.Informationen, die von:
-
-* Manuelle Erfassung
-* Smart Shop
-  * Große Menge an Ablaufdaten verfügbar
-  * Langzeitstatistik denkbar
-* Smart Home
-  * Smart Home Geräte können das Datum verfolgen
-
-Beispiel für Ablaufdaten:
-
-Angesichts der folgenden Ablaufdaten für ein bestimmtes Produkt: 01.07.2018, 15.07.2018, 01.07.2018, 01.07.2018, 15.07.2018. Zur einfacheren Berechnung übertragen wir diese Daten in, Tage bis   Ablaufdatum:  1 Tag, 15 Tage, 1 Tag, 1 Tag, 15 Tage \(angenommen heute ist 30.06.2017\):
-
-![](.gitbook/assets/image%20%283%29.png)
-
-* Stark verbreitet
-* Keine Übereinstimmung der allgemeinen Wahrscheinlichkeitsverteilung \(Näherung nicht sinnvoll\)
-* Verwendung der relativen Häufigkeit der Daten zur Erzeugung einer Wahrscheinlichkeitsfunktion
-
-So beschlossen wir nun, die kumulative Wahrscheinlichkeitsverteilung basierend auf den Daten \(und ihrer relativen Häufigkeit\) aufzubauen. Für das angegebene Beispiel würde die Funktion so aussehen:
-
-![](.gitbook/assets/image%20%284%29.png)
-
-Verbrauchsdaten als Datenbasis:
-
-In diesem fall hängt die Wahrscheinlichkeit, dass ein Produkt gekauft werden muss, nur vom Verhalten des Verbrauchers ab. Dieses Verhalten wird in Form von Verbrauchsdaten geliefert. Das heißt, die Daten enthalten Informationen darüber, wie lange es dauert, bis ein Produkt von einem bestimmten Verbraucher/Haushalt konsumiert wird. Basierend auf einem Satz von Verbrauchsdaten eines Produkts ist es möglich, zu bestimmen, mit welcher Wahrscheinlichkeit ein Produkt bis zu einem bestimmten Datum verbraucht wird, indem die Wahrscheinlichkeitsfunktion \(Dichte\) oder die kumulative Wahrscheinlichkeitsfunktion aufgebaut wird. Wie bereits erwähnt, bedeutet dies, dass je mehr Daten verfügbar sind, desto genauer kann die Wahrscheinlichkeit bestimmt werden. 
-
-Zum Beispiel: Angesichts der folgenden Verbrauchsdaten für ein bestimmtes Produkt: 2,3,4,4,4,4,5,5,5,5,6,5,6,6,6,6,7,7,8 \(Tage\)
-
-![](.gitbook/assets/image%20%2811%29.png)
-
-  
-In der Abbildung sehen wir, wie die Daten verteilt sind. Wie wir sehen können, sieht die Verteilung der Daten ähnlich aus eine normale Verteilung.Deshalb werden wir eine Approximation der Wahrscheinlichkeitsfunktion unter Verwendung der Normalverteilungsfunktion erstellen.
-
-Wir haben uns entschieden, die Wahrscheinlichkeitsfunktion oder die kumulative Wahrscheinlichkeitsfunktion aufzubauen, indem wir sie mit Hilfe der Normalverteilungsfunktion approximieren. Um die Wahrscheinlichkeitsdichtefunktion zu erhalten, müssen wir zunächst den Erwartungswert und die Standardabweichung/varianz bestimmen:
-
-![](.gitbook/assets/image%20%2810%29.png)
-
-Nachdem wir die Wahrscheinlichkeitsdichtefunktion erstellt haben, können wir darüber integrieren, um die kumulative Wahrscheinlichkeitsverteilungsfunktion zu erhalten.Die Wahrscheinlichkeitsdichtefunktion kann uns die Wahrscheinlichkeit mitteilen, dass ein Produkt genau jetzt verbraucht wird. Für unseren Anwendungsfall wird also die kumulative Wahrscheinlichkeitsverteilungsfunktion benötigt, weil wir nicht die Wahrscheinlichkeit wissen wollen, dass ein Produkt genau jetzt konsumiert wird, sondern wir wollen jetzt wissen, wie die Wahrscheinlichkeit ist, dass es bisher konsumiert wird.
-
-### Welchen Mehrwert liefert Smart Shop?
-
-Mit neuen Smart Labels können wir eine angereicherte Erfahrung im Laden bieten, die es Kunden ermöglicht, direkt mit Produkten zu interagieren und bei Bedarf erweiterte Informationen zu erhalten.
 
 #### Idee : Erstellung  intelligentes Kassensystem:
 
