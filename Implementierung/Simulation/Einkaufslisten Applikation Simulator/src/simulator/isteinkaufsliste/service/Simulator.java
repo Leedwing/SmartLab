@@ -15,10 +15,23 @@ public class Simulator {
 	SollService sollService = new SollService();
 	IstService istService = new IstService();
 	
-	public Map<Integer, List<String>> simuliereAblauf(Persona persona,
-			Map<Integer, List<Produkt>> sollEinkaufsListenMap, int zeitRaum, boolean appTouchPoint,
-			boolean homeTouchPoint, int Qapp, int Qhome, String matrixCombinationDateiName) throws ParseException {
+	/**
+	 * Simuliere den Einkaufsprozess �ber den eingegebenen Zeitraum
+	 * @param persona
+	 * @param zeitRaum
+	 * @param appTouchPoint
+	 * @param homeTouchPoint
+	 * @param Qapp
+	 * @param Qhome
+	 * @param dateiName
+	 * @return
+	 * @throws ParseException
+	 */
+	public void simuliereAblauf(Persona persona, int zeitRaum, boolean appTouchPoint,
+			boolean homeTouchPoint, int Qapp, int Qhome, String dateiName) throws ParseException {
 		Map<Integer, List<String>> istEinkaufsListeMap = new HashMap<>();
+		Map<Integer, List<Produkt>> sollEinkaufsListenMap = sollService.erstelleSollEinkaufslistenBeimEinkauf(persona,
+				zeitRaum);
 		List<Integer> sollEinkaufsListenMapKeys = sollService.sortiereSollMapKey(sollEinkaufsListenMap);
 		
 		for(int i=1; i<=zeitRaum; i++) {
@@ -89,7 +102,7 @@ public class Simulator {
 			istEinkaufsliste = istService.get_einkaufsliste(1);
 			//Überprüfen, ob Tag i ist Einkaufstag
 			if(sollEinkaufsListenMapKeys.contains(i)) {
-				System.out.println("Simulation läuft... Einkaufstag: " + i);
+				System.out.println("Simulation laeuft... Einkaufstag: " + i);
 				istEinkaufsListeMap.put(i, istEinkaufsliste);
 				for(String produktName : istEinkaufsliste) {
 					
@@ -100,7 +113,7 @@ public class Simulator {
 			
 		}
 		
-		einkaufslistenGenerator.schreibeGenerierteEinkaufslistenInEinerDatei(istEinkaufsListeMap, matrixCombinationDateiName);
-		return null;
+		sollService.schreibeSollEinkaufslistenInEinerDatei(sollEinkaufsListenMap, "sollEinkaufsListe.csv");
+		einkaufslistenGenerator.schreibeGenerierteEinkaufslistenInEinerDatei(istEinkaufsListeMap, dateiName);
 	}
 }
