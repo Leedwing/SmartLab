@@ -280,7 +280,7 @@ Aus den zuvor bestimmten Metrik-Werten wird im Anschluss eine csv erstellt. Zus�
 
 Die Simulationsergebnisse setzen sich aus dem Vergleich von verschiedenen Ausprägungen von Personas und Belegung der Werte der Smart Integrations Matrix zusammen. Wir haben uns im Folgenden auf die unter Definitionen dargestellte Persona 'Sportler' beschränkt. Um nun die Unterschiede in der Qualität der Liste bei unterschiedlicher Verwendung der zwei Komponenten hervorzuheben, haben wir für einen festen Verbrauchsablauf unterschiedliche Werte der Smart Integrations Matrix zur Auswertung verwendet. In _Abbildung 4.3_ ist der Vergleich der Auswertung einer '1100'-Belegung einer '1110'-Belegung gegenübergestellt. Eine Belegung von '1100' bedeutet, dass der User die App und das Smart Home verwendet, jedoch jeweils mit Qualtätsstufe 0. In diesem Fall wird die Einkaufsliste also rein nur auf Basis der vorhandenen Verbrauchs- und MHD-Statistiken bestimmt. Da der User in unserem Beispiel jedoch nie sein Verbrauch erfasst hat, werden die Prognosen rein auf Basis der MHD-Daten bestimmt.   
 Der Unterschied in der Belegung '1110' im Vergleich zu '1100' ist lediglich, dass der User die App mit Qualitätsstufe 1 verwendet, also mit einer 33%ige Wahrscheinlichkeit ein Produkt bei Verbrauch über die App erfasst.   
-Wie im Vergleich zu erkennen ist, wird durch diesen geringen Zuwachs an Informationen, die generierten Einkaufslisten deutlich präziser sind.
+Wie im Vergleich zu erkennen ist, wird durch diesen geringen Zuwachs an Informationen, die generierten Ist-Einkaufslisten deutlich präziser.
 
 ![Abbildung 4.3: Auswertungsbeispiel Sportler &apos;1100&apos; vs. &apos;1110&apos;](.gitbook/assets/auswertung_beispiel_1.PNG)
 
