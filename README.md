@@ -12,7 +12,7 @@ Die Verknüpfung von Smart Home und Smart Shop stellt eine Herausforderung dar, 
 
 ### Projektidee
 
-Anhand der Evaluation des Marktes von Smart Home und Smart Shop entwickelten wir verschiedenste Projektideen zur Verknüpfung der Bereiche. Da eines der Ziele es war,  eine praktische Umsetzung einer Serviceinnovation in diesem Bereich zu implementieren, haben wir uns hierbei nicht nur oberflächlich mit den entworfenen Anwendungsmöglichkeiten beschäftigt, sondern ebenfalls eine prototypische Umsetzung eines Servicemodells in Form u.a. einer Appanwendung durchgeführt.
+Anhand der Evaluation des Marktes von Smart Home und Smart Shop entwickelten wir verschiedenste Projektideen zur Verknüpfung der Bereiche. Da eines der Ziele es war,  eine praktische Umsetzung einer Serviceinnovation in diesem Bereich zu implementieren, haben wir uns hierbei nicht nur oberflächlich mit den entworfenen Anwendungsmöglichkeiten beschäftigt, sondern ebenfalls eine prototypische Umsetzung eines Servicemodells in Form u.a. einer Applikation durchgeführt.
 
 Diese \(prototypischen\) Implementierungen sollen die Machbarkeit der Serviceidee demonstrieren. Um zudem die Sinnhaftigkeit und den Nutzen der Entwicklung zu veranschaulichen, wurde abschließend eine Art Simulation durchgeführt, wessen Ergebnisse die Gains des Services hervorheben.
 
