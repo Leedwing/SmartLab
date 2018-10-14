@@ -53,13 +53,9 @@ In der Simulation verwenden wir diese Matrix, um verschiedenste Verhaltensweisen
 
 ## Simulationsaufbau
 
-Die folgende Abbildung fasst den Simulationsaufbau zusammen.
-
-
-
 ![Abbildung 4.1: Simulationsaufbau](.gitbook/assets/simulationsaufbau.jpg)
 
-Für die Simulation wurden die folgenden Schritte durchgeführt:
+_Abbildung 4.1_ fasst den Simulationsaufbau zusammen. Der Ablauf der Simulation enthält folgende Schritte:
 
 * **Erstellung einer Persona** Beispielsweise ein Sportler der Butter innerhalb von 17 bis 22 Tagen verbraucht hat und alle 5 bis 7 Tage einkaufen geht. Im folgenden Codeblock ist eine beispielhafte Definition einer Persona in unserer Applikation dargestellt.
 
@@ -279,24 +275,19 @@ Aus den zuvor bestimmten Metrik-Werten wird im Anschluss eine csv erstellt. Zus�
 ## Simulationsergebnisse
 
 Die Simulationsergebnisse setzen sich aus dem Vergleich von verschiedenen Ausprägungen von Personas und Belegung der Werte der Smart Integrations Matrix zusammen. Wir haben uns im Folgenden auf die unter Definitionen dargestellte Persona 'Sportler' beschränkt. Um nun die Unterschiede in der Qualität der Liste bei unterschiedlicher Verwendung der zwei Komponenten hervorzuheben, haben wir für einen festen Verbrauchsablauf unterschiedliche Werte der Smart Integrations Matrix zur Auswertung verwendet. In _Abbildung 4.3_ ist der Vergleich der Auswertung einer '1100'-Belegung einer '1110'-Belegung gegenübergestellt. Eine Belegung von '1100' bedeutet, dass der User die App und das Smart Home verwendet, jedoch jeweils mit Qualtätsstufe 0. In diesem Fall wird die Einkaufsliste also rein nur auf Basis der vorhandenen Verbrauchs- und MHD-Statistiken bestimmt. Da der User in unserem Beispiel jedoch nie sein Verbrauch erfasst hat, werden die Prognosen rein auf Basis der MHD-Daten bestimmt.   
-Der Unterschied in der Belegung '1110' im Vergleich zu '1100' ist lediglich, dass der User die App mit Qualitätsstufe 1 verwendet, also mit einer 33%ige Wahrscheinlichkeit ein Produkt bei Verbrauch über die App erfasst.   
-Wie im Vergleich zu erkennen ist, wird durch diesen geringen Zuwachs an Informationen, die generierten Ist-Einkaufslisten deutlich präziser.
+Der Unterschied in der Belegung '1110' im Vergleich zu '1100' ist lediglich, dass der User die App mit Qualitätsstufe 1 verwendet, also mit einer 33%ige Wahrscheinlichkeit ein Produkt bei Verbrauch über die App erfasst. 
 
 ![Abbildung 4.3: Auswertungsbeispiel Sportler &apos;1100&apos; vs. &apos;1110&apos;](.gitbook/assets/auswertung_beispiel_1.PNG)
 
-
-
-
+Wie im Vergleich zu erkennen ist, wird bereits durch einen geringen Zuwachs an Informationen über das Verbrauchsverhalten, die generierten Ist-Einkaufslisten deutlich präziser. Dies wird auch in _Abbildung 4.4_ deutlich. Belegung '1111' verwendet im Vergleich zu '1110' zusätzlich Smart Home mit Qualitätsstufe 1, d.h. es wird ein weiterer Kanal zur Erfassung des Verbrauchs verwendet, welcher die Ergebnisse nochmals deutlich verfeinern.
 
 ![Abbildung 4.4: Auswertungsbeispiel Sportler &apos;1110&apos; vs. &apos;1111&apos;](.gitbook/assets/auswertung_beispiel_2.PNG)
 
-
-
-
+Der letzte Vergleich in _Abbildung 4.5_ soll den Unterschied verdeutlichen, welchen Gain die Kanalerweiterung via Smart Home erfüllt. Die Qualität der Ergebnisse kann durch smarte Geräte, die ggf. sogar automatisiert Verbrauchsinformationen erfassen können, stark verbessert werden. Eine manuelle Verwaltung seiner Liste via App wäre somit nicht notwendig, bzw. würde die Qualität der Informationen bei manueller Verwaltung nur noch weiter verbessert werden.
 
 ![Abbildung 4.5: Auswertungsbeispiel Sportler &apos;1120&apos; vs. &apos;1103&apos;](.gitbook/assets/auswertung_beispiel_3.PNG)
 
-
+Die von uns durchgeführten Auswertungen sind nur ein kleiner Teil möglicher Simulationen. Der Aufbau dieses Simulators kann auf unzählige weitere Personas und derer SIM-Kombinationen angewendet werden, um die Effekte der verschiedenen Informationskanäle analysieren zu können.
 
 
 
