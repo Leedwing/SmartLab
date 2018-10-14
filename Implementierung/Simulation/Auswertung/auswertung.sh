@@ -141,8 +141,8 @@ set ylabel \"Fehler in Liste\"
 set yrange [0:5]
 set xtics 0,1,50
 set xtics font \" ,8\"
-plot \"$outputPath\" using 1:3 title \"'Zuviel' auf Liste\" lw 1 lt rgb \"green\",\
-\"$outputPath\" using 1:4 title \"'Zu Wenig' auf Liste\" lw 1 lt rgb \"blue\",\
-\"$outputPath\" using 1:5 title \"Fehlersumme\" lw 1 lt rgb \"red\""> gnuplot_files/auswertung_$istList_Bezeichnung.plt
+plot \"$outputPath\" using 1:3 title \"'Zuviel' auf Liste\" lw 1 lc rgb \"green\",\
+\"$outputPath\" using 1:4 title \"'Zu Wenig' auf Liste\" lw 1 lc rgb \"blue\",\
+\"$outputPath\" using 1:5 title \"Fehlersumme\" lw 1 lt 1 lc rgb \"red\""> gnuplot_files/auswertung_$istList_Bezeichnung.plt
 
 /usr/bin/gnuplot gnuplot_files/auswertung_$istList_Bezeichnung.plt
