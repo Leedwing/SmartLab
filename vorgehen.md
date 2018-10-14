@@ -162,38 +162,19 @@ Im Folgenden einige Beispiele von möglichen Verbesserungen :
     * Bereinigung der  Einkaufsliste
     * Erfassung des Kaufdatums der Produkte
 * **Angebotsbenachrichtigungen** Basierend auf dem Kaufverhalten oder/und der Einkaufsliste des Users können personalisierte Angebotsbenachrichtungen über die Applikation angezeigt werden und somit den Einkauf des Kunden optimieren. ****
-* **Kundenprofile** Um den User bei der erstmaligen Verwendung der Einkaufslisten Applikation schnell und effizient zu unterstützen, könnten vom Shop vordefinierte Kundenprofile angeboten werden, die das Kundenverhalten angenähert abbilden sollen. Somit kann bei \(noch\) nicht vorhanden Statiskiten des Kundenverhaltens, trotzdem bereits eine automatisierte Einkaufsliste erstellt werden. Korreliert ein vordefiniertes Profil nicht voll und ganz mit dem Kundenprofil, kann der Kunde sein Profil selbst ergänzen, indem der die App durch manuelles Hinzufügen von Produkten in die Einkaufsliste, mit Verbrauchsinformationen füttert. 
+* **Kundenprofile** Um den User bei der erstmaligen Verwendung der Einkaufslisten Applikation schnell und effizient zu unterstützen, könnten vom Shop vordefinierte Kundenprofile angeboten werden, die das Kundenverhalten angenähert abbilden sollen. Somit kann bei \(noch\) nicht vorhanden Statistiken des Kundenverhaltens, trotzdem bereits eine automatisierte Einkaufsliste erstellt werden. Korreliert ein vordefiniertes Profil nicht voll und ganz mit dem Kundenprofil, kann der Kunde sein Profil selbst ergänzen, indem der die App durch manuelles Hinzufügen von Produkten in die Einkaufsliste, mit Verbrauchsinformationen füttert. 
 * **Einkaufslisten-basierte Navigation** Durch die Integration einer 'In-Shop-Navigation' könnte der Nutzer basierend auf seiner Einkaufsliste optimiert durch den Laden geführt werden. Dies hätte vor allem für Kunden sinnvoll, die sich im Shop \(noch\) nicht gut auskennen.
 
 Die vorgestellten Ideen sind nur ein Teil vieler weiterer Möglichkeiten von Optimierungen der Applikation via Smart Shop. Da unser Projektziel es war, eine ergänzende Anwendung zu entwickeln, haben wir eine Smart Shop integrierende Applikation in Form eines intelligenten Kassensystems entwickelt. Die genauen Spezifikationen sind im Kapitel Implementierung zu finden.
 
-### Welchen Mehrwert liefert Smart Home?
+### Wie kann Smart Home die Qualität der Einkaufslisten Applikation verbessern?
 
-Viele Prozesse können mithilfe von Smart Home verbessert werden. In diesem Abschnitt konzentrieren wir uns jedoch auf die Verbesserung des Einkaufsprozesses.
+Das Smart Home Ökosystem hat heutzutage einen guten Entwicklungstand erreicht. Wird das Inventarmanagement für Haushaltsprodukte betrachtet, kann man sehr schnell einige Beispiele nennen. Von einer smarten Kaffeemaschine, die den Kaffeestand automatisch meldet, über einen intelligenten Kühlschrank, der per Touchscreen bedienbar ist, um bspw. Produktzustand zu erfassen, bis hin zu sprachgesteuerten Meldungen mit Sprachassistenten wie Alexa von Amazon oder Google Home von Google, ergibt sich aus dem Smart Home Bereich sehr viele Integrationsmöglichkeiten mit der Einkaufslisten Applikation. Dabei kann man zwei unterschiedliche Integrationsaspekte feststellen:
 
-![](.gitbook/assets/unbenannt.PNG)
+* **Integration mit User-Eingriff \(manuelle Datenerfassung\)** Es handelt sich um eine Verknüpfung der Einkaufslisten Applikation mit einem Smart Home Gerät, wobei der User eingreifen muss. Fehlt bspw. ein Produkt auf der Einkaufsliste zum Tag des Einkaufs kann der User per Sprachsteuerung dieses Produkt auf die Liste hinzufügen. Dieses Ereignis weist zugleich darauf hin, dass die Einkaufsliste mit der idealen Liste nicht korreliert und erzeugt nach dem Kauf einen Datensatz mit einem genauen Verbrauchsverhalten für dieses Produkt. Je mehr solche Meldungen vorkommen, desto besser wird die Qualität der durch die Applikation generierten Einkaufsliste. Es ist hier vielleicht wichtig zu erwähnen, dass dieser Schritt auch direkt über die Applikation möglich ist aber weniger komfortabel.
+* **Integration ohne User-Eingriff \(automatische Datenerfassung\)** In andere Fälle kann ein Smart Home Gerät selbständig den Verbrauch melden. Hierbei handelt es sich um eine automatische Datenerfassung. Eine Kaffeemaschine kann bspw. den Kaffeestand, wenn der Kaffee fast ausgebraucht ist direkt zur Applikation melden. Somit werden dank dieser Daten, analog zu der manuellen Datenerfassung, optimierte Einkaufslisten generiert.
 
-* Der User benötigt  5 oder 6 Clicks auf seinem Smartphone, um ein Produkt auf die digitale Einkaufsliste zu setzen
-* Zuvor besteht die Möglichkeit , dass der User das Smartphone, in dem Moment, in der er ein Produkt auf die Einkaufsliste setzen will, nicht zu Hand hat. Er muss es erst suchen.
-* Das bedeutet von dem Wunsch, ein Produkt auf die Einkaufsliste zu setzen und bis das Produkt auf der digitalen Einkaufsliste ist, müssen viele Steps durchlaufen werden. Vielen Usern ist das ein zu großer Aufwand und werden deshalb die Software nicht nutzen
-
- Lösung: Smart Home Devices sind die Lösung um diesen Vorgang zu vereinfachen und zu beschleunigen.Wir haben die Technologien im Smart Home Bereich analysiert und bewertet welche für den Bestands und Kontrollprozess hilfreich sind:
-
-![](.gitbook/assets/image%20%2812%29.png)
-
-Amazon Alexa:
-
-* Verwaltet eine digital Shopping List mit Sprachsteuerung
-* Dadurch entfällt die manuelle Verwaltung : Mit der Sprachsteuerung beispielsweise kann ein Produkt mit nur einem Befehl auf die Einkaufsliste gesetzt werden, anstatt zuerst das Smartphone auszupacken, die Einkaufslisten-App zu öffnen und das richtige Produkt hinzuzufügen
-* Aufnahme des Verbrauchsdatum beim Hinzufügen eines Produktes auf die Einkaufliste
-* Aufnahme „Verbrauch in Tagen“ eines Produktes und hinzufügen in die Verbrauchsstatistik  
-
-Smarter Kühlschrank:
-
-* Anzeige des tatsächlichen Bestands im Kühlschrank
-* Automatisches hinzufügen von Produkten auf eine digitale Einkaufsliste wenn Produkt ausgeht.
-
-Wir haben uns für voice- vontrol bei der Realisierung entschieden weil der Smart-Fridge von der Technologie noch nicht so ausgereift ist bzw. wenn noch zu teuer und selbst entwickelte Apps können nicht bestückt werden.
+Man kann sich weitere Szenarien vorstellen bzw. implementieren, wo mit Hilfe von Smart Home Geräte die Einkaufslisten Applikation optimiert wird. Es ist klar zu sehen, dass ein gut ausgestattetes Smart Home Ökosystem \(kann durch die Anzahl von smarte Geräte beurteilt werden\) ein Hinweis über sein Qualitätsgrad geben könnte. Je höher der Qualitätsgrad des Smart Home Ökosystems desto besser wird die generierte Einkaufsliste. Dabei ist auch die Geschwindigkeit der Verbesserung abhängig vom Qualitätsgrad des Smart Home Ökosystems.
 
 ### Fusion von Smart Home und Smart Shop:
 
