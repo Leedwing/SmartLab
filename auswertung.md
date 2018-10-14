@@ -8,27 +8,26 @@ Im folgenden werden die in der Simulation verwendeten Hilfsmittel und Bausteine 
 
 Bevor wir mit der Simulation begannen, definierten wir zuerst die der Simulation zu Grunde gelegten Bewertungskriterien. Bewertet werden soll allgemein gesagt die Nützlichkeit der vorgestellten Applikationen im Bezug auf den Einkaufsprozess.  
 Da unsere Applikation\(en\) den Einkaufsprozess anhand einer digitalen Einkaufsliste verbessern, liegt der Fokus auf der Korrektheit der automatisch generierten Einkaufsliste. D.h. uns interessiert das sogenannte Delta zwischen der automatisch generierten Einkaufsliste \(Ist-Liste\) und der optimales Einkaufliste \(Soll-Liste\) um die Korrektheit der Liste überhaupt bewerten zu können.  
-Um die Korrektheit zwischen den zwei Listen einheitlich zu messen, haben wir folgende Metriken festgelegt:
+Um die Korrektheit zwischen den zwei Listen einheitlich zu messen, haben wir folgende zwei Metriken festgelegt:
 
-* Anzahl der Produkte auf Soll-Liste, die auf der Ist-Liste fehlen
-* Anzahl der Produkte auf Ist-Liste, die nicht auf Soll-Liste stehen
+* Anzahl der Produkte auf Soll-Liste, die auf der Ist-Liste fehlen  --&gt; im Folgenden als 'Zu Wenig' bezeichnet
+* Anzahl der Produkte auf Ist-Liste, die nicht auf Soll-Liste stehen --&gt; im Folgenden als 'Zuviel' bezeichnet
 
 ### Persona
 
 Entspricht in diesem Zusammenhang bestimmten Konsum- & Verbrauchsdaten über eine bestimmte Person oder einen Personenkreis. Eine Persona definiert sich dabei durch eine Menge von Produkten die regelmäßig \(oder auch unregelmäßig\) gekauft werden, mit zusätzlicher Angabe des durchschnittlichen Verbrauchs in Form von Intervallen. Zusätzlich zu den Verbrauchs-/Bedarfsinformationen wird eine Einkaufshäufigkeit in Form eines Intervalls angegeben. D.h. zusammengefasst ist für bestimmte Produkte deren Bedarfshäufigkeit in einer Persona definiert, sowie auch dessen allgemeint Einkaufshäufigkeit \(in gleicher Form\).
 
-Die folgende Tabelle veranschaulicht dies am Beispiel einer Sportler-Persona:
+Die folgende Tabelle veranschaulicht dies am Beispiel einer **Sportler-Persona**:
 
 | Produkt | Bedarfshäufigkeit \(Sportler\) |
 | :--- | :---: |
-| Butter | 25 - 30 Tage |
-| Milch |  7 - 14 Tage |
-| Käse | 10 - 15 Tage |
-| Salami |  7 - 10 Tage |
-
-| Einkaufshäufigkeit \(Sportler\) | 7 - 14 Tage |
-| :--- | :--- |
-
+| Butter | 17 - 22 Tage |
+| Milch |  3 - 7 Tage |
+| Käse | 7 - 10 Tage |
+| Salami | 5 - 7 Tage |
+| Joghurt | 20 - 25 Tage |
+| --------------- | --------------- |
+| _Einkaufshäufigkeit_ | _4 - 6 Tage_ |
 
 ### Smart Integration Matrix
 
@@ -56,12 +55,16 @@ In der Simulation verwenden wir diese Matrix, um verschiedenste Verhaltensweisen
 
 Die folgende Abbildung fasst den Simulationsaufbau zusammen.
 
-![Abbildung: Simulationsaufbau](.gitbook/assets/simulationsaufbau.jpg)
+
+
+![Abbildung 4.1: Simulationsaufbau](.gitbook/assets/simulationsaufbau.jpg)
 
 Für die Simulation wurden die folgenden Schritte durchgeführt:
 
 * **Erstellung einer Persona** Beispielsweise ein Sportler der Butter innerhalb von 17 bis 22 Tagen verbraucht hat und alle 5 bis 7 Tage einkaufen geht. Im folgenden Codeblock ist eine beispielhafte Definition einer Persona in unserer Applikation dargestellt.
 
+{% code-tabs %}
+{% code-tabs-item title="SollService.java\(Ausschnitt\)" %}
 ```text
 // Persona Definition: Beispiel Sportler
 Map<String, Produkt> sportlerProduktMap = new HashMap<String, Produkt>();
@@ -74,6 +77,8 @@ public void setSportlerProduktMap() {
 	sportlerProduktMap.put("Joghurt", new Produkt("Joghurt", 20, 25));
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 * **Erstellung vom Verbrauchsablauf** Auf Basis der vordefinierten Personadaten wird ein Verbrauchs- sowie Einkaufsablauf erzeugt, aus welchem sich eine ideale Einkaufsliste \(Soll-Liste\) für die Persona ableiten lässt. Diese ideale Einkaufsliste wird als csv-Datei für die weitere Verarbeitung bzw. Auswertung abgelegt. Im folgenden Codeblock wird die ideale Liste dargestellt. Dabei entspricht die erste Spalte Zahlen dem Einkaufsablauf und die darauf folgende Liste den benötigten Produkten zum Zeitpunkt dieses Einkaufs.
 
@@ -97,18 +102,22 @@ public void setSportlerProduktMap() {
 {% endcode-tabs %}
 
 * **Abbildung der Smart Integration Matrix** Die festgelegten Matrix-Werte werden dem Simulator als Parameter übergeben 
-* **Simulation** Die Simulation erfolgt, indem die Methode _simuliereAblauf\(\)_ aufgerufen wird. Diese Methode bildet den Simulator ab und nimmt  neben den Matrix-Werten eine bestimmte Persona, ihre ideale Liste und den Zeitraum über den die Simulation ablaufen darf als Parameter.
+* **Simulation** Die Simulation erfolgt, indem die Methode _simuliereAblauf\(\)_ aufgerufen wird. Diese Methode bildet den Simulator ab und nimmt  neben den Matrix-Werten eine bestimmte Persona, ihre ideale Liste und den Zeitraum über den die Simulation ablaufen darf als Parameter.  Der Ablauf ist wie folgt: Es wird über jeden Tag iteriert und dabei basierend auf den Qualitätsstufen der verwendeten Komponenten \(App oder Smart Home Gerät\) durch Zufall das Setzen der Produkte auf die Einkaufsliste simuliert. Anschließend wird, im Falle eines Einkaufstages, die Soll- und Ist-Einkaufsliste gespeichert und zusätzlich die Einkaufsliste geleert. Das Leeren der Einkaufsliste wird in unserem Use-Case automatisiert durchgeführt, da wir von einer Integration eines smarten Kassensystems ausgehen, welches uns den Zeitpunkt und Informationen eines Kaufs übermittelt. In Kapitel 'Implementierung' ist eine prototypische Umsetzung eines solchen Kassensystems dargestellt.
 
+{% code-tabs %}
+{% code-tabs-item title="Simulator.java \(Ausschnitt\)" %}
 ```text
-public void simuliereAblauf(Persona persona, Map<Integer, \
-	List<Produkt>> sollEinkaufsListenMap, int zeitRaum, boolean appTouchPoint,
-	boolean homeTouchPoint, int Qapp, int Qhome, String matrixCombinationDateiName) throws ParseException {
+public void simuliereAblauf(Persona persona, Map<Integer,
+		int zeitRaum, boolean appTouchPoint, boolean homeTouchPoint,
+		int Qapp, int Qhome, String dateiName) throws ParseException {
 	
 	Map<Integer, List<String>> istEinkaufsListeMap = new HashMap<>();
+	Map<Integer, List<Produkt>> sollEinkaufsListenMap = sollService.erstelleSollEinkaufslistenBeimEinkauf(persona, zeitRaum);
 	List<Integer> sollEinkaufsListenMapKeys = sollService.sortiereSollMapKey(sollEinkaufsListenMap);
 	
+	// Starte Simulation fuer vorgegebenen 'zeitRaum'
 	for(int i=1; i<=zeitRaum; i++) {
-		// Sollliste für Tag i erstellen
+		// erstelle Sollliste für Tag i
 		List<Produkt> sollListeTagI= sollService.erstelleSollEinkaufsListe(persona, i);
 		
 		// hole generierte Einkaufsliste (von der App)
@@ -117,6 +126,7 @@ public void simuliereAblauf(Persona persona, Map<Integer, \
 		// setze ggf. verbrauchte Produkte auf die istEinkaufsliste
 		List<String> istEinkaufsliste = istService.get_einkaufsliste(1);
 		
+		// Ermittle Qualitätsstufe(n)
 		double pApp = 0.0;
 		switch (Qapp) {
 		case 1:
@@ -149,6 +159,7 @@ public void simuliereAblauf(Persona persona, Map<Integer, \
 			break;
 		}
 		
+		// Simuliere 'Setzen auf Liste'
 		for(Produkt produkt : sollListeTagI) {
 			if(einkaufslistenGenerator.itemAlreadyExist(istEinkaufsliste, produkt.getName())==false) {
 				if (appTouchPoint && Math.random() <= pApp) {
@@ -176,11 +187,116 @@ public void simuliereAblauf(Persona persona, Map<Integer, \
 		}
 		
 	}
-	einkaufslistenGenerator.schreibeGenerierteEinkaufslistenInEinerDatei(istEinkaufsListeMap, matrixCombinationDateiName);
+	// Ausgabe der Einkaufslisten
+	einkaufslistenGenerator.schreibeGenerierteEinkaufslistenInEinerDatei(istEinkaufsListeMap, dateiName);
+	sollService.schreibeSollEinkaufslistenInEinerDatei(sollEinkaufsListenMap, "sollEinkaufsListe.csv");
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+* **Auswertung** Um eine Auswertung durchzuführen werden die zuvor in der Simulation erzeugten Soll- und Ist-Einkaufslisten in Form von csv-Tabellen miteinander verglichen. Dabei werden die zwei zuvor definierten Metriken gemessen und festgehalten und somit eine Art Fehlerquote bestimmt. Der folgende Bash-Codeausschnitt zeigt den zuvor beschriebenen Vergleich der Listen und das bestimmen der zwei Metriken.
+
+{% code-tabs %}
+{% code-tabs-item title="auswertung.sh \(Ausschnitt\)" %}
+```text
+#!/bin/bash
+
+istList=$1
+sollList=$2
+
+# Laufe über jeden in der Liste befindlichen Eintrag/Einkaufstag
+while read lineSoll
+do
+	if [ `echo $lineSoll | grep ^[0-9]` ]
+	then	
+		shoppingDay=$(echo $lineSoll | cut -d";" -f1)
+		lineIst=$(cat $istList | grep "^$shoppingDay;")
+		
+		if [ -z "$lineIst" ]
+		then
+			echo "No Shoppinglist available for day $shoppingDay" >> /dev/stderr
+			continue
+		fi
+
+		# Metriken bestimmen
+		anzahlZuviele=0
+		for productIst in `echo "$lineIst" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n"`
+		do
+			needed=0
+			for productSoll in `echo "$lineSoll" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n"`
+			do
+				if [ "$productIst" == "$productSoll" ]
+				then
+					needed=1
+				fi
+			done
+			if [ $needed == 0 ]
+			then
+				anzahlZuviele=$((anzahlZuviele + 1))
+			fi
+
+		done
+		
+		historie_anzahlZuviele+=($anzahlZuviele)
+		
+		anzahlFehlende=0
+		for productSoll in `echo "$lineSoll" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n" `
+		do
+			inList=0
+			for productIst in `echo "$lineIst" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n"`
+			do
+				if [ "$productSoll" == "$productIst" ]
+				then
+					inList=1
+				fi
+			done
+			if [ $inList == 0 ]
+			then
+				anzahlFehlende=$((anzahlFehlende + 1))
+			fi
+		done
+
+		historie_anzahlFehlende+=($anzahlFehlende)
+
+		einkaufstag=`echo $lineSoll | cut -d";" -f1`
+		historie_Einkaufstage+=($einkaufstag)
+
+		anzahlSoll=`echo "$lineSoll" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n" | wc -l`
+		anzahlIst=`echo "$lineIst" | sed 's/^[0-9]*;//g' | sed 's/;$//g' | tr ";" "\n" | wc -l`
+	fi
+done < $sollList
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Aus den zuvor bestimmten Metrik-Werten wird im Anschluss eine csv erstellt. Zusätzlich wird eine dat-Datei für das grafische Darstellungstool Gnuplot erstellt und ausgeführt, um die ausgewerteten Ergebnisse anhand eines Graphen besser analysieren zu können. _Abbildung 4.2_ zeigt ein Beispiel der aus Gnuplot entstandenen Grafik einer durchgeführten Auswertung. Dabei werden die zwei Metriken 'Zuviel' und 'Zuwenig' dargestellt, sowie eine Summe derer beiden als Fehlersumme.
+
+![Abbildung 4.2: Beispielauswertung \(Gnuplot\)](.gitbook/assets/auswertung_1100.png)
+
+
 
 ## Simulationsergebnisse
+
+Die Simulationsergebnisse setzen sich aus dem Vergleich von verschiedenen Ausprägungen von Personas und Belegung der Werte der Smart Integrations Matrix zusammen. Wir haben uns im Folgenden auf die unter Definitionen dargestellte Persona 'Sportler' beschränkt. Um nun die Unterschiede in der Qualität der Liste bei unterschiedlicher Verwendung der zwei Komponenten hervorzuheben, haben wir für einen festen Verbrauchsablauf unterschiedliche Werte der Smart Integrations Matrix zur Auswertung verwendet. In _Abbildung 4.3_ ist der Vergleich der Auswertung einer '1100'-Belegung einer '1110'-Belegung gegenübergestellt. Eine Belegung von '1100' bedeutet, dass der User die App und das Smart Home verwendet, jedoch jeweils mit Qualtätsstufe 0. In diesem Fall wird die Einkaufsliste also rein nur auf Basis der vorhandenen Verbrauchs- und MHD-Statistiken bestimmt. Da der User in unserem Beispiel jedoch nie sein Verbrauch erfasst hat, werden die Prognosen rein auf Basis der MHD-Daten bestimmt.   
+Der Unterschied in der Belegung '1110' im Vergleich zu '1100' ist lediglich, dass der User die App mit Qualitätsstufe 1 verwendet, also mit einer 33%ige Wahrscheinlichkeit ein Produkt bei Verbrauch über die App erfasst.   
+Wie im Vergleich zu erkennen ist, wird durch diesen geringen Zuwachs an Informationen, die generierten Einkaufslisten deutlich präziser sind.
+
+![Abbildung 4.3: Auswertungsbeispiel Sportler &apos;1100&apos; vs. &apos;1110&apos;](.gitbook/assets/auswertung_beispiel_1.PNG)
+
+
+
+
+
+![Abbildung 4.4: Auswertungsbeispiel Sportler &apos;1110&apos; vs. &apos;1111&apos;](.gitbook/assets/auswertung_beispiel_2.PNG)
+
+
+
+
+
+![Abbildung 4.5: Auswertungsbeispiel Sportler &apos;1120&apos; vs. &apos;1103&apos;](.gitbook/assets/auswertung_beispiel_3.PNG)
+
+
 
 
 
