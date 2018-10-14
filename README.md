@@ -1,3 +1,7 @@
+---
+description: 'Link zum Gitbook: https://smartlab.gitbook.io/main/'
+---
+
 # Smart Lab Dokumentation
 
 ![](.gitbook/assets/logo.png)

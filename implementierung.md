@@ -1,5 +1,9 @@
 # Implementierung
 
+## Übersicht Gesamtarchitektur
+
+![Abbildung 3.0: &#xDC;bersicht Gesamtarchitektur](.gitbook/assets/architektur_gesamt.PNG)
+
 ## Einkaufslisten-App
 
 **Bezeichnung:** Einkaufslistengenerator
