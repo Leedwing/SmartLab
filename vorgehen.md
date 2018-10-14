@@ -149,42 +149,23 @@ In unserer Anwendung haben wir die Wahrscheinlichkeitsverteilung anhand der rela
 
 ### Wie kann Smart Shop die Qualität der Einkaufslisten Applikation verbessern?
 
-Durch die Integration von Smart Shop, kann eine Vielzahl an zusätzliche Services für die Einkaufslisten Applikation ergänzend sein. Grundlage dafür wäre eine vorhandene Infrastruktur auf Smart Shop Seite, die dank einer Schnittstelle zu der Applikation eine Kommunikation ermöglicht. Folgende Aspekte können betrachtet werden:
+Durch die Integration von Smart Shop, können eine Vielzahl an zusätzliche Services für die Einkaufslisten Applikation entwickelt werden. Grundlage dafür wäre eine vorhandene Infrastruktur auf der Seite von Smart Shop, die mittels Schnittstelle zur Applikation eine Kommunikation ermöglicht.   
+Im Folgenden einige Beispiele von möglichen Verbesserungen :
 
-* **Kundenverbrauchsdaten-Service**  
-  Nutzt ein User die Einkaufslisten Applikation, kann der im Shop an der Kasse sich über die Applikation sich identifizieren lassen. Dies kann durch ein smartes Kassensystem ermöglicht werden. So kann das Datum der gekauften Produkte \(aus der Einkaufsliste\) vom Shop erfasst werden. Zusätzlich dazu kann der Shop darüber wissen, falls der User ein Produkt gekauft hat, das nicht auf  der liste stand, wie der Warenkorb des Users genau aussieht. Beide Informationen nämlich Kaufdatum und aktueller Warenkorb des Users können der Einkaufslisten Applikation bereitgestellt werden.  
-  Ein intelligentes Kassensystem könnte folgende Anforderungen erfüllen:
-
-
-
+* **Kundenverbrauchsdaten-Service** Nutzt ein User die Einkaufslisten Applikation, kann er sich im Shop mittels App authentifizieren. Dies könnte bspw. durch ein smartes Kassensystem ermöglicht werden. Zusätzlich könnte so das Datum der gekauften Produkte vom Shop erfasst und and die App übermittelt werden. Ein intelligentes Kassensystem könnte somit bereits die folgenden Funktionen enthalten:
   * Möglichkeit für Kundenanmeldung via QR-Code
-  * Anzeige des Kundenwarenkorbs
   * Anzeige aller Produkte die abgescannt oder ausgewählt wurden
-  * Möglichkeit Produkte via Barcode abzuscannen
+  * Anzeige von Produktpräferenzen des Kunden
+  * Möglichkeit Produkte via Barcode zu erfassen
   * Nach dem Bezahlvorgang :
 
-    * Sollen alle ausgewählten Produkte von der  Einkaufsliste gestrichen werden
-    * Das Kaufdatum der Produkte soll aufgenommen werden
+    * Bereinigung der  Einkaufsliste
+    * Erfassung des Kaufdatums der Produkte
+* **Angebotsbenachrichtigungen** Basierend auf dem Kaufverhalten oder/und der Einkaufsliste des Users können personalisierte Angebotsbenachrichtungen über die Applikation angezeigt werden und somit den Einkauf des Kunden optimieren. ****
+* **Kundenprofile** Um den User bei der erstmaligen Verwendung der Einkaufslisten Applikation schnell und effizient zu unterstützen, könnten vom Shop vordefinierte Kundenprofile angeboten werden, die das Kundenverhalten angenähert abbilden sollen. Somit kann bei \(noch\) nicht vorhanden Statiskiten des Kundenverhaltens, trotzdem bereits eine automatisierte Einkaufsliste erstellt werden. Korreliert ein vordefiniertes Profil nicht voll und ganz mit dem Kundenprofil, kann der Kunde sein Profil selbst ergänzen, indem der die App durch manuelles Hinzufügen von Produkten in die Einkaufsliste, mit Verbrauchsinformationen füttert. 
+* **Einkaufslisten-basierte Navigation** Durch die Integration einer 'In-Shop-Navigation' könnte der Nutzer basierend auf seiner Einkaufsliste optimiert durch den Laden geführt werden. Dies hätte vor allem für Kunden sinnvoll, die sich im Shop \(noch\) nicht gut auskennen.
 
-* **Angebotsbenachrichtigungen** Basierend auf dem Kaufsverhalten oder/und der Einkaufsliste eines Users können personalisierte Angebotsbenachrichtungen über die Applikation angezeigt werden. ****
-* **Kundenprofile** Um dem User bei der erstmaligen Verwendung der Einkaufslisten Applikation schnell und effizient zu unterstützen, könnten vom Shop vordefinierte Kundenprofile angeboten werden, die das Kundenverhalten angenähert abbildet. Somit kann bei nicht vorhanden Statiskiten des Kundenverhaltens trotzdem eine  Einkaufsliste erstellt werden. Korreliert ein vordefiniertes Profil nicht hundertprozentig mit dem Kundenprofil kann der Kunde dieses Profil selber ergänzen, indem der bspw. Produkte seinem Warenkorb hinzufügt, die zuvor nicht vorhanden war. 
-* Einkaufslisten-basierte Navigation
-
-
-
-#### Idee : Erstellung  intelligentes Kassensystem:
-
-wir haben uns entschieden ein intelligentes Kassensystem zu erstellen mit folgenden Anforderungen:
-
-* Möglichkeit für Kundenanmeldung via QR-Code
-* Anzeige aller Produkte
-* Anzeige aller Produkte die abgescannt oder ausgewählt wurden
-* Möglichkeit Produkte via Barcode abzuscannen
-* Nach dem Bezahlvorgang :
-
-  * Sollen alle ausgewählten Produkte vom Einkaufzettel gestrichen werden
-  * Produkte die noch nicht im Warenkorb eingetragen sind , sollen eingetragen werden
-  * Das Kaufdatum der Produkte soll aufgenommen werden
+Die vorgestellten Ideen sind nur ein Teil vieler weiterer Möglichkeiten von Optimierungen der Applikation via Smart Shop. Da unser Projektziel es war, eine ergänzende Anwendung zu entwickeln, haben wir eine Smart Shop integrierende Applikation in Form eines intelligenten Kassensystems entwickelt. Die genauen Spezifikationen sind im Kapitel Implementierung zu finden.
 
 ### Welchen Mehrwert liefert Smart Home?
 
@@ -216,31 +197,30 @@ Wir haben uns für voice- vontrol bei der Realisierung entschieden weil der Smar
 
 ### Fusion von Smart Home und Smart Shop:
 
-Im Artikel "Towards a definition of the Internet of Things \(IoT\)" von IEEE Internet of Thing gibt es viele Definitionen dieses Ausdrucks aus verschiedenen Gruppen. IoT-SRA \(Internet of Things Strategic Research Agenda\) bietet eine Definition des IoT, die auf drei Perspektiven basiert. IoT muss sein Dinge orientiert, was bedeutet, dass die Dinge Identitäten haben, um in einem intelligenten Raum zu funktionieren und Schnittstellen zur Kommunikation mit der Umgebung zu verwenden. Internetorientiert, d.h. Existenz einer globalen Netzwerkinfrastruktur zur Verknüpfung von physischen und virtuellen Objekten mit Hilfe von Daten- und Kommunikationsmöglichkeiten. Semantisch orientiert, d.h. IoT-Ressourcen, Informationsmodelle, Datenanbieter und Verbraucher müssen interoperabel sein.
+Zu guter letzt betrachten wir die Möglichkeiten die durch die Fusion von Smart Home und Smart Shop bzw. durch die Integration beider in Bezug auf die Einkaufslisten Applikation entstehen.   
+Die entwickelte übergreifende Anwendung wurde im Laufe des Projekts stufenweise aufgebaut. Dies wird durch das folgende Kapitel durch die drei Architekturstufen verdeutlicht.
 
-#### Architektur:
+#### Architektur
 
-#### Architektur: Stufe 1
+**Stufe 1**
 
-![](.gitbook/assets/1.PNG)
+![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 1](.gitbook/assets/1.PNG)
 
-  
-
-
-In dieser Architekturebene muss der Benutzer seinen Standard-Einkaufswagen in der App manuell eingeben. Mindesthaltbarkeitsdaten werden auch manuell aus verschiedenen Geschäften gesammelt und in einer Datenbank gespeichert.Die Komponente "Einkaufslistengenerator" ermittelt anhand dieser Daten, welches Produkt auf der Einkaufsliste stehen soll.
+Die in Abbildung 2.x dargestellte Stufe 1 unserer Applikation bildet die Grundlage für alle weiteren im Folgenden hinzukommenden Funktionen. In dieser Architekturebene beschränkten wir uns lediglich auf die mobile Applikation ohne jegliche Anbindung von Smart Home oder Shop, d.h. es war weder eine übergreifende noch eine ergänzende Anwendung.  
+In dieser Architekturebene gibt der Benutzer seinen Standard-Einkaufswagen sowie sein Verbrauchsverhalten \(durch Setzen eines Produkts auf die Einkaufsliste\) manuell in die App ein. Statistische Grundlage zum automatisierten Füllen der Einkaufsliste bilden dabei die standardmäßig vorhandenen MHD-Statistiken sowie die manuell erfassten Verbrauchsdaten.
 
 #### Architektur: Stufe 2
 
-![](.gitbook/assets/2%20%281%29.PNG)
+![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 2](.gitbook/assets/2%20%281%29.PNG)
 
-  
-
-
-Diese Ebene zeigt ein Architekturbeispiel einer ergänzenden Anwendung. Sobald die Zahlung abgeschlossen ist, bietet der Smart Shop-Bereich  verbraucherspezifische Daten über gekaufte Produkte. Diese Daten werden über die Komponente "Einkaufslisten-Generator"  verwendet, um eine verbraucherspezifische Standard-Einkaufskarte und -Verbrauch zu erzeugen, was zur Optimierung der Einkaufslistengenerierung beiträgt.
+Die Architektur der Stufe 2 setzt auf Stufe 1 auf und ergänzt dieses durch die Smart Shop Komponente. Durch die Integration von Smart Shop entstehen die im vorigen Kapitel beschriebenen Möglichkeiten. Wir entschieden uns zur Implementierung einer prototypischen Applikation eines smarten Kassensystems.  
+Die Einbindung von Smart Shop in Stufe 2 verbessert unsere Applikation zu einer ergänzenden Anwendung.   
+In dieser Architekturebene wird somit ein weiterer Kanal zur Verbesserung der Verbrauchsstatistik erschaffen, da automatisiert die Einkaufsliste geleert wird und zudem Kaufinformationen automatisiert Rückschluss auf Verbrauchsverhalten liefern können.  
+Wird beim Einkauf die Zahlung abgeschlossen, werden die Kaufinformationen des Users vom Smart Shop-Bereich in die Verbrauchsdatenbank übermittelt. Diese Daten werden wie bereits in Stufe 1 verwendet, um das Füllen und Leeren der Einkaufsliste zu automatisieren. 
 
 #### Architektur: Stufe 3
 
-![](.gitbook/assets/3%20%281%29.PNG)
+![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 3](.gitbook/assets/3%20%281%29.PNG)
 
   
 
