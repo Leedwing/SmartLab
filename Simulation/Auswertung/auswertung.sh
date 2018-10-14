@@ -16,10 +16,11 @@ then
 fi
 
 istList=$1
-istList_Bezeichnung=`echo $istList | sed 's/.csv$//g' | sed 's/istEinkaufsliste_//g'`
+istList_Bezeichnung=`basename $istList | sed 's/.csv$//g' | sed 's/istEinkaufsliste_//g'`
 sollList=$2
 
-outputPath=./auswertung_$istList_Bezeichnung.dat
+outputPath=./meta_files/auswertung_$istList_Bezeichnung.dat
+outputPathCSV=./output_files/auswertung_$istList_Bezeichnung.csv
 
 while read lineSoll
 do
@@ -117,17 +118,21 @@ echo "Fehlende:	$fehlende_csv"
 zuviele_csv=`echo ${historie_anzahlZuviele[*]} | tr " " ";" | sed 's/$/;/g'`
 echo "Zuviele:	$zuviele_csv"
 
-echo "Schreibe csv nach: $outputPath"
-anzahlEinkaeufe=`cat $istList | grep ^[0-9] | cut -d";" -f1 | wc -l`
+echo "Schreibe csv nach: $outputPathCSV"
+echo "Schreibe dat nach: $outputPath"
 
-#echo "Einkauf;Einkaufstag;Anzahl 'zuviel';Anzahl 'fehlend';Fehlersumme" > $outputPath
 echo "" > $outputPath
-for i in `seq 1 $anzahlEinkaeufe`
+
+for i in `seq 1 $(cat $istList | grep ^[0-9] | wc -l)`
 do
 	echo "$i ${historie_Einkaufstage[$i-1]} ${historie_anzahlZuviele[$i-1]} ${historie_anzahlFehlende[$i-1]} $(( ${historie_anzahlZuviele[$i-1]}+${historie_anzahlFehlende[$i-1]} ))" >> $outputPath
 done
 
-# Nutze Tabelle um Plots zu erstellen
+echo "Einkauf;Einkaufstag;Anzahl 'zuviel';Anzahl 'fehlend';Fehlersumme" > $outputPathCSV
+cat $outputPath | sed 's/\ /;/g' >> $outputPathCSV
+
+
+# Nutze Tabelle (dat-Datei) um Plots zu erstellen
 echo "set terminal pngcairo
 set output \"output_files/auswertung_$istList_Bezeichnung.png\"
 set title \"\"
@@ -136,11 +141,8 @@ set ylabel \"Fehler in Liste\"
 set yrange [0:5]
 set xtics 0,1,50
 set xtics font \" ,8\"
-plot \"$outputPath\" using 1:3 with lines title \"'Zuviel' auf Liste\" lw 1 lt rgb \"green\",\
-\"$outputPath\" using 1:4 with lines title \"'Zu Wenig' auf Liste\" lw 1 lt rgb \"blue\",\
-\"$outputPath\" using 1:5 with lines title \"Fehlersumme\" lw 1 lt rgb \"red\""> gnuplot_files/auswertung_$istList_Bezeichnung.plt
+plot \"$outputPath\" using 1:3 title \"'Zuviel' auf Liste\" lw 1 lt rgb \"green\",\
+\"$outputPath\" using 1:4 title \"'Zu Wenig' auf Liste\" lw 1 lt rgb \"blue\",\
+\"$outputPath\" using 1:5 title \"Fehlersumme\" lw 1 lt rgb \"red\""> gnuplot_files/auswertung_$istList_Bezeichnung.plt
 
 /usr/bin/gnuplot gnuplot_files/auswertung_$istList_Bezeichnung.plt
-
-#rm -f $outputPath
-
