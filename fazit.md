@@ -14,7 +14,10 @@
 
 ## Ausblick
 
+Durch die Lieferung von Daten die durch das Nutzen unserer App entstehen, vorallem mit dem zusätzlichen Einsatz von Smart Home und Smart Shop Technologien, ergeben sich durch Daten Analysen eine Menge neuer Use Cases. Anhand von den Infromationen wann ein Kunde seine Einkäufe tätigt, seine Produkte verbraucht und welche Produkte er kauft, entstehen unzählige neue Funktionen die in die App eingebaut werden können. Vorallem gibt es ein riesiges Verbesserungspotential im Smart Shop Bereich. Folgende Ideen sind möglich:
 
+* Durch die Informationen welche Produkte sich auf der Einkaufsliste befinden. Besteht die Möglichkeit anhand der Einkaufsliste den Kunden/ User durch den Shop zu navigieren.
+* Anhand dem Inhalt des Warenkorbs, können Charaktere oder Profile erstellt werden. 
 
 
 
