@@ -169,12 +169,13 @@ Die vorgestellten Ideen sind nur ein Teil vieler weiterer Möglichkeiten von Opt
 
 ### Wie kann Smart Home die Qualität der Einkaufslisten Applikation verbessern?
 
-Das Smart Home Ökosystem hat heutzutage einen guten Entwicklungstand erreicht. Wird das Inventarmanagement für Haushaltsprodukte betrachtet, kann man sehr schnell einige Beispiele nennen. Von einer smarten Kaffeemaschine, die den Kaffeestand automatisch meldet, über einen intelligenten Kühlschrank, der per Touchscreen bedienbar ist, um bspw. Produktzustand zu erfassen, bis hin zu sprachgesteuerten Meldungen mit Sprachassistenten wie Alexa von Amazon oder Google Home von Google, ergibt sich aus dem Smart Home Bereich sehr viele Integrationsmöglichkeiten mit der Einkaufslisten Applikation. Dabei kann man zwei unterschiedliche Integrationsaspekte feststellen:
+Der Smart Home Bereich hat durch seine rasante Entwicklung heute bereits einen guten Entwicklungstand erreicht. Betrachtet man das Inventarmanagement für Haushaltsprodukte, kann man sehr schnell einige Smart Home Geräte nennen, die dies unterstützen. Von einer smarten Kaffeemaschine die den Kaffeestand automatisch meldet, über einen intelligenten Kühlschrank, der per Touchscreen bedienbar ist, um bspw. den Bestand zu erfassen, bis hin zur Verwaltung via Sprachassistenten wie Amazon Alexa oder Google Home. Somit ergeben sich aus der Smart Home Integration viele Integrationsmöglichkeiten.   
+Dabei kann man zwischen zwei unterschiedlichen Integrationsaspekte unterscheiden:
 
-* **Integration mit User-Eingriff \(manuelle Datenerfassung\)** Es handelt sich um eine Verknüpfung der Einkaufslisten Applikation mit einem Smart Home Gerät, wobei der User eingreifen muss. Fehlt bspw. ein Produkt auf der Einkaufsliste zum Tag des Einkaufs kann der User per Sprachsteuerung dieses Produkt auf die Liste hinzufügen. Dieses Ereignis weist zugleich darauf hin, dass die Einkaufsliste mit der idealen Liste nicht korreliert und erzeugt nach dem Kauf einen Datensatz mit einem genauen Verbrauchsverhalten für dieses Produkt. Je mehr solche Meldungen vorkommen, desto besser wird die Qualität der durch die Applikation generierten Einkaufsliste. Es ist hier vielleicht wichtig zu erwähnen, dass dieser Schritt auch direkt über die Applikation möglich ist aber weniger komfortabel.
-* **Integration ohne User-Eingriff \(automatische Datenerfassung\)** In andere Fälle kann ein Smart Home Gerät selbständig den Verbrauch melden. Hierbei handelt es sich um eine automatische Datenerfassung. Eine Kaffeemaschine kann bspw. den Kaffeestand, wenn der Kaffee fast ausgebraucht ist direkt zur Applikation melden. Somit werden dank dieser Daten, analog zu der manuellen Datenerfassung, optimierte Einkaufslisten generiert.
+* **Integration mit User-Eingriff \(manuelle Datenerfassung\)**  Hierbei handelt es sich um eine Verknüpfung der Einkaufslisten Applikation mit einem Smart Home Gerät, wobei der User eingreifen muss. Fehlt bspw. ein Produkt auf der Einkaufsliste kann der User per Sprachsteuerung dieses Produkt der Liste hinzufügen. Durch dieses Ereignis wird zudem ein nach ein Datensatz mit dem genauen Verbrauchsverhalten für dieses Produkt angelegt. Je öfter diese Aktivität ausgeführt wird \(manuell oder automatisiert\), desto besser wird die Qualität der durch die Applikation generierten Einkaufsliste. Dieser Schritt ist ebenfalls direkt über die Applikation möglich, jedoch weniger komfortabel.
+* **Integration ohne User-Eingriff \(automatische Datenerfassung\)**  In diesem Fall meldet das Smart Home Gerät den Verbrauch selbstständig. D.h. es handelt sich um eine automatische Datenerfassung. Eine smarte Kaffeemaschine kann bspw. den Bedarf an Kaffeebohnen melden, wenn der Füllstand einen bestimmten Schwellenwert unterschritten hat. Somit kann anhand dieser Daten, analog zu der manuellen Datenerfassung, die automatische Einkaufsliste erzeugt werden.
 
-Man kann sich weitere Szenarien vorstellen bzw. implementieren, wo mit Hilfe von Smart Home Geräte die Einkaufslisten Applikation optimiert wird. Es ist klar zu sehen, dass ein gut ausgestattetes Smart Home Ökosystem \(kann durch die Anzahl von smarte Geräte beurteilt werden\) ein Hinweis über sein Qualitätsgrad geben könnte. Je höher der Qualitätsgrad des Smart Home Ökosystems desto besser wird die generierte Einkaufsliste. Dabei ist auch die Geschwindigkeit der Verbesserung abhängig vom Qualitätsgrad des Smart Home Ökosystems.
+Es sind weitere Szenarien vorstell- bzw. umsetzbar, in denen mit Hilfe von Smart Home Geräten die Einkaufslisten Applikation optimiert wird. Es ist klar zu erkennen, dass eine gut ausgestattete Smart Home Umgebung \(kann u.a. durch die Anzahl smarter Geräte beurteilt werden\) ein Hinweis über den Qualitätsgrad geben könnte. Je höher der Qualitätsgrad der Smart Home Umgebung, desto höher die Genauigkeit der generierten Einkaufsliste. Zudem werden je nach Qualitätsgrad der Smart Home Umgebung die Daten deutlich schneller in ihrer Qualität verbessert.
 
 ### Fusion von Smart Home und Smart Shop:
 
@@ -185,32 +186,25 @@ Die entwickelte übergreifende Anwendung wurde im Laufe des Projekts stufenweise
 
 **Stufe 1**
 
-![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 1](.gitbook/assets/1.PNG)
+![Abbildung 2.5: Architektur&#xFC;bersicht Stufe 1](.gitbook/assets/1.PNG)
 
-Die in Abbildung 2.x dargestellte Stufe 1 unserer Applikation bildet die Grundlage für alle weiteren im Folgenden hinzukommenden Funktionen. In dieser Architekturebene beschränkten wir uns lediglich auf die mobile Applikation ohne jegliche Anbindung von Smart Home oder Shop, d.h. es war weder eine übergreifende noch eine ergänzende Anwendung.  
+Stufe 1 unserer Applikation, dargestellt in _Abbildung 2.5,_ bildet die Grundlage für alle weiteren im Folgenden hinzukommenden Funktionen. In dieser Architekturebene beschränkten wir uns lediglich auf die mobile Applikation ohne jegliche Anbindung von Smart Home oder Shop, d.h. es handelt sich weder um eine übergreifende, noch um eine ergänzende Anwendung.  
 In dieser Architekturebene gibt der Benutzer seinen Standard-Einkaufswagen sowie sein Verbrauchsverhalten \(durch Setzen eines Produkts auf die Einkaufsliste\) manuell in die App ein. Statistische Grundlage zum automatisierten Füllen der Einkaufsliste bilden dabei die standardmäßig vorhandenen MHD-Statistiken sowie die manuell erfassten Verbrauchsdaten.
 
 #### Architektur: Stufe 2
 
-![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 2](.gitbook/assets/2%20%281%29.PNG)
+![Abbildung 2.6: Architektur&#xFC;bersicht Stufe 2](.gitbook/assets/2%20%281%29.PNG)
 
-Die Architektur der Stufe 2 setzt auf Stufe 1 auf und ergänzt dieses durch die Smart Shop Komponente. Durch die Integration von Smart Shop entstehen die im vorigen Kapitel beschriebenen Möglichkeiten. Wir entschieden uns zur Implementierung einer prototypischen Applikation eines smarten Kassensystems.  
+Die in _Abbildung 2.6_ dargestellte Architektur der Stufe 2 setzt auf Stufe 1 auf und ergänzt dieses durch die Smart Shop Komponente. Durch die Integration von Smart Shop entstehen die im vorigen Kapitel beschriebenen Möglichkeiten. Wir entschieden uns zur Implementierung einer prototypischen Applikation eines smarten Kassensystems.  
 Die Einbindung von Smart Shop in Stufe 2 verbessert unsere Applikation zu einer ergänzenden Anwendung.   
 In dieser Architekturebene wird somit ein weiterer Kanal zur Verbesserung der Verbrauchsstatistik erschaffen, da automatisiert die Einkaufsliste geleert wird und zudem Kaufinformationen automatisiert Rückschluss auf Verbrauchsverhalten liefern können.  
 Wird beim Einkauf die Zahlung abgeschlossen, werden die Kaufinformationen des Users vom Smart Shop-Bereich in die Verbrauchsdatenbank übermittelt. Diese Daten werden wie bereits in Stufe 1 verwendet, um das Füllen und Leeren der Einkaufsliste zu automatisieren. 
 
 #### Architektur: Stufe 3
 
-![Abbildung 2.x: Architektur&#xFC;bersicht Stufe 3](.gitbook/assets/3%20%281%29.PNG)
+![Abbildung 2.7: Architektur&#xFC;bersicht Stufe 3](.gitbook/assets/3%20%281%29.PNG)
 
-  
-
-
-Diese Ebene zeigt ein Architekturbeispiel einer übergreifenden Anwendung.Smart Home liefert die zusätzlichen Echtzeitverbrauchsdaten des Verbrauchers.Die beiden Bereiche Smart Home und Smart Shop liefern Eingabedaten zur Optimierung der Einkaufsliste.
-
-
-
-  
+Die dritte und letzte Architekturstufe \(_Abbildung 2.7_\) wird im Vergleich zur Stufe 2 zusätzlich durch die Smart Home Komponente\(n\) ergänzt. Durch diese Erweiterung entwickelt sich die zuvor ergänzende Anwendung zu einer übergreifenden Anwendung. Durch die Ergänzung des Smart Home Bereiches können zusätzliche Echtzeitverbrauchsdaten des Verbrauchers erhoben und in die Verbrauchsstatistik aufgenommen werden. Durch diesen weiteren Kanal bzw. die weiteren Kanäle aus dem Smart Home, können somit genauere Prognosen über den Verbrauch bestimmt bzw. eine bessere Einkaufsliste generiert werden.  
 
 
 
@@ -218,35 +212,6 @@ Diese Ebene zeigt ein Architekturbeispiel einer übergreifenden Anwendung.Smart 
 
 
 
-
-
-
- 
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
- 
 
 
 
